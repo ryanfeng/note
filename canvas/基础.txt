@@ -1,0 +1,28 @@
+<canvas id="canvas" width= height=></canvas>
+var canvas = document.getElementById('canvr=as');
+canvas.width = 1024;
+canvas.height = 768;
+var context = canvas.getContext("2d");
+if(content){
+	context.beginPath()
+	context.moveTo(100, 100);
+	context.lineTo(700, 700);
+	content.lineTo(100, 700);
+	content.lineWidth = 5;
+	context.closePath();
+	context.strokeStyle = "#CCC";//线
+	content.fillStyle = "#CCC";//填充
+	context.stroke();	//线条
+	context.fill(); //填充
+	context.moveTo();
+	context.lineTo();
+	context.strokeStyle = "black";
+	context.stroke();
+
+	//七巧板
+
+	context.arc(x, y, radius, 0 , 1.5*Math.PI, true);
+	context.stroke();
+} else {
+	浏览器不支持
+}
