@@ -10,7 +10,7 @@ K464
 	你必须幸福
 
 知识小记：
-setTimeout和setInterval
+
 懒加载
 http://blog.csdn.net/qq673318522/article/details/50733878
 http://fedeoo.github.io/%E7%BF%BB%E8%AF%91/2014/11/01/angular-lazy-load
@@ -480,48 +480,5 @@ Json数据分为：字符串和对象；
   	字符串转化为JSON对象：str.parseJSON()。	
 特别注意：如果obj本来就是一个JSON对象，那么运用 eval（）函数转换后（哪怕是多次转换）还是JSON对象，但是运用 parseJSON（）函数处理后会有疑问（抛出语法异常）。  	
 ========================================================
-
-
-JavaScript学习
-========================================================
-1.JavaScript:EAMCScript + Dom + Bom
-2.特点：区分大小写，变量是弱类型的。
-3.变量命名：下划线、字母、$开头。
-4.原始值(Undefined,Null,Boolean,Number,String):栈（stack）;引用值:堆（heap）。
-5.Null: typeof如果变量是一种引用类型或 Null 类型的: object。
-6.Unfinied: var temp; -->undefined ,alert(typeof oTemp2); -->undifined 
-7.Number:8进制 0开头，16进制 0x开头。
-8.Infinity: 无穷大 isFinite();
-9.NaN: 非数字 isNaN; alert(NaN == NaN);  //输出 "false"
-10.类型转化
-		toString()
-		parseInt()
-		parseFloat()
-		强制类型转化：
-			Boolean(value)
-			Number(value)
-			String(value)
-String方法:
-11.instanceof 和 typeof的区别
-	var oStringObject = new String("hello world");
-	alert(oStringObject instanceof String);	//输出 "true"
-	typeof 引用类型的值都会返回 object
-12.toLowerCase()/toLocaleLowerCase()/toUpperCase()/toLocaleUpperCase()
-13.slice()与substring()的区别
-	var oStringObject = new String("hello world");
-	alert(oStringObject.slice("3"));		//输出 "lo world"
-	alert(oStringObject.substring("3"));		//输出 "lo world"
-	alert(oStringObject.slice("3", "7"));		//输出 "lo w"
-	alert(oStringObject.substring("3", "7"));	//输出 "lo w"
-
-	var oStringObject = new String("hello world");
-	alert(oStringObject.slice("-3"));		//输出 "rld"
-	alert(oStringObject.substring("-3"));	//输出 "hello world"
-	alert(oStringObject.slice("3, -4"));		//输出 "lo w"
-	alert(oStringObject.substring("3, -4"));	//输出 "hel"   
-14.indexOf() 与 lastIndexOf()的区别: indexof(e) 
-15.charAt() 与 charCodeAt() 的区别: charAt(2)
-16.localCompare() 比较两个字符串大小
-17.concat() 结合两个字符串
 
 
