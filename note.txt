@@ -9,7 +9,9 @@ K464
 	我们好像在哪见过
 	你必须幸福
   
-	 
+golang
+docker
+nodejs	 
 
 知识小记：
 setTimeout和setInterval
@@ -42,6 +44,9 @@ http://www.alexa.cn/
 导师账号：
 jc4443@columbia.edu
 chenjunnan
+
+15759262118
+bbAMBI1202
 
 532558098@qq.com
 jc4443@columbia.edu

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<canvas id="canvas"></canvas>
+	<script type="text/javascript">
+		var canvas = document.getElementById("canvas");	
+		canvas.width = 400;
+		canvas.height = 400;
+
+		var context = canvas.getContext("2d");
+
+		var arrayPoints = [
+			[[0, 0], [400, 0], [200, 100], 'red'],
+			[[0, 0], [200, 100], [0, 100], 'yellow'],
+			[[400, 0], [400, 100], [300, 50], 'blue'],
+			[[300, 50], [400, 100], [300, 150], [200, 100], 'black'],
+			[[0, 100], [200, 100], [300, 150], [0, 150], 'green'],
+			[[400, 100], [400, 300], [0, 300], 'gray'],
+			[[0, 150], [300, 150], [0, 300], 'navy']	
+		]
+
+		for(var i=0; i< arrayPoints.length; i++){
+			context.beginPath();
+			draw(context, arrayPoints[i]);
+			context.closePath();
+			context.fill();
+		}
+
+		function draw (context, points) {
+			context.fillStyle = points[points.length-1];
+			context.moveTo(points[0][0], points[0][1]);
+			for (var i = 1; i < points.length-1; i++) {
+				context.lineTo(points[i][0], points[i][1]);
+			};
+		}
+	</script>
+</body>
+</html>

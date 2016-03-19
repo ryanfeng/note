@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<canvas id="canvasBase" style="margin: 0 auto; border:1px solid; display:block"></canvas>
+	<input type="range" min="0.5" value="1" max="3" step="0.1" id="range">	
+	
+	<script type="text/javascript">
+		var widthBase = 1080;
+		var heightBase = 338;
+
+		var range = document.getElementById("range");
+		range.style.display = "block";
+		range.style.width = widthBase/3 + "px";
+		range.style.margin = "20px auto";
+
+		var canvasBase = document.getElementById("canvasBase");
+		canvasBase.height = heightBase;
+		canvasBase.width = widthBase;
+		var context = canvasBase.getContext("2d");
+		
+		window.onload = function (){
+			var img = new Image();
+			img.src = "C:\\Users\\Administrator\\Desktop\\note\\canvas\\theme-bg-5.jpg";
+			img.onload = function() {
+				context.drawImage(img, 0, 0);
+			}
+		}
+
+		range.onmousedown = function (e){
+			console.log(e.clientX, e.clientY);
+		}
+
+		function getPoints(range, canvasBase) {
+			console.log(canvasBase.);
+			return {x:;y:}
+		}
+	</script>
+</body>
+</html>

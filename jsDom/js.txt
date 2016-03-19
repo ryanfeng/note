@@ -29,3 +29,75 @@
 
 	parent.removeChild(child);
 	child.parentNode.removeChild(child);
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=" utf-8">
+<meta name="author" content="http://www.softwhy.com/" />
+<title>蚂蚁部落</title>
+<script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+<script type='text/javascript'>
+$(window).load(function(){ 
+  /** 
+  * convertImgToBase64 
+  * @param {String} url 
+  * @param {Function} callback 
+  * @param {String} [outputFormat='image/png'] 
+  * @author HaNdTriX 
+  * @example 
+  convertImgToBase64('http://goo.gl/AOxHAL', function(base64Img){ 
+    console.log('IMAGE:',base64Img); 
+  }) 
+  */ 
+  function convertImgToBase64(url, callback, outputFormat){ 
+    var canvas = document.createElement('CANVAS'); 
+    var ctx = canvas.getContext('2d'); 
+    var img = new Image; 
+    img.crossOrigin = 'Anonymous'; 
+    img.onload = function(){ 
+      canvas.height = img.height; 
+      canvas.width = img.width; 
+      ctx.drawImage(img,0,0); 
+      var dataURL = canvas.toDataURL(outputFormat || 'image/png'); 
+      callback.call(this, dataURL); 
+      // Clean up 
+      canvas = null; 
+    }; 
+    img.src = url; 
+  } 
+ 
+  $('#img2b64').submit(function(event){ 
+    var imageUrl = $(this).find('input[name=url]').val(); 
+    console.log('imageUrl', imageUrl); 
+    convertImgToBase64(imageUrl, function(base64Img){ 
+      $('.output') 
+      .find('textarea') 
+      .val(base64Img) 
+      .end() 
+      .find('a') 
+      .attr('href', base64Img) 
+      .text(base64Img) 
+      .end() 
+      .find('img') 
+      .attr('src', base64Img); 
+    }); 
+    event.preventDefault(); 
+  }); 
+});
+</script>
+</head>
+<body>
+<h2>Input</h2>
+<form class="input-group" id="img2b64">
+  <input type="url" name="url"  value="http://upload.wikimedia.org/wikipedia/commons/4/4a/Logo_2013_Google.png">
+  <span class="input-group-btn"><input type="submit"></span>
+</form>
+<hr>
+<div class="output">
+  <textarea class="form-control"></textarea>
+</div>
+</body>
+</html>
+
