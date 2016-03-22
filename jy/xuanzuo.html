@@ -1,0 +1,894 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>选座位</title>
+<link href="css/master.css" rel="stylesheet"  />
+<script src="js/jquery-1.8.3.min.js" type="text/javascript"></script>
+<script src="js/common.js" type="text/javascript"></script>
+<script src="js/tab.js" type="text/javascript"></script>
+<script src="js/layer/layer.js" type="text/javascript"></script>
+
+</head>
+<script>
+var tikectCount = 0 ;
+var ticketPirce = 38.0;
+$(function(){
+	var seatInfos = [{"sectionId":"01","sectionName":"全区","axis":"","seatId":"02010421","seatRow":"1","seatCol":"10","graphRow":"1","graphCol":"1","seatType":"0","state":"-1"},{"sectionId":"01","sectionName":"全区","axis":"","seatId":"02010422","seatRow":"1","seatCol":"9","graphRow":"1","graphCol":"2","seatType":"0","state":"-1"},{"sectionId":"01","sectionName":"全区","axis":"","seatId":"02010423","seatRow":"1","seatCol":"8","graphRow":"1","graphCol":"3","seatType":"0","state":"-1"},{"sectionId":"01","sectionName":"全区","axis":"","seatId":"02010424","seatRow":"1","seatCol":"7","graphRow":"1","graphCol":"4","seatType":"0","state":"-1"},{"sectionId":"01","sectionName":"全区","axis":"","seatId":"02010425","seatRow":"1","seatCol":"6","graphRow":"1","graphCol":"5","seatType":"0","state":"-1"},{"sectionId":"01","sectionName":"全区","axis":"","seatId":"02010426","seatRow":"1","seatCol":"5","graphRow":"1","graphCol":"6","seatType":"0","state":"-1"},{"sectionId":"01","sectionName":"全区","axis":"","seatId":"02010427","seatRow":"1","seatCol":"4","graphRow":"1","graphCol":"7","seatType":"0","state":"-1"},{"sectionId":"01","sectionName":"全区","axis":"","seatId":"02010428","seatRow":"1","seatCol":"3","graphRow":"1","graphCol":"8","seatType":"0","state":"-1"},{"sectionId":"01","sectionName":"全区","axis":"","seatId":"02010429","seatRow":"1","seatCol":"2","graphRow":"1","graphCol":"9","seatType":"0","state":"-1"},{"sectionId":"01","sectionName":"全区","axis":"","seatId":"02010430","seatRow":"1","seatCol":"1","graphRow":"1","graphCol":"10","seatType":"0","state":"-1"},{"sectionId":"01","sectionName":"全区","axis":"","seatId":"02010521","seatRow":"2","seatCol":"10","graphRow":"2","graphCol":"1","seatType":"0","state":"-1"},{"sectionId":"01","sectionName":"全区","axis":"","seatId":"02010522","seatRow":"2","seatCol":"9","graphRow":"2","graphCol":"2","seatType":"0","state":"-1"},{"sectionId":"01","sectionName":"全区","axis":"","seatId":"02010523","seatRow":"2","seatCol":"8","graphRow":"2","graphCol":"3","seatType":"0","state":"-1"},{"sectionId":"01","sectionName":"全区","axis":"","seatId":"02010524","seatRow":"2","seatCol":"7","graphRow":"2","graphCol":"4","seatType":"0","state":"-1"},{"sectionId":"01","sectionName":"全区","axis":"","seatId":"02010525","seatRow":"2","seatCol":"6","graphRow":"2","graphCol":"5","seatType":"0","state":"-1"},{"sectionId":"01","sectionName":"全区","axis":"","seatId":"02010526","seatRow":"2","seatCol":"5","graphRow":"2","graphCol":"6","seatType":"0","state":"-1"},{"sectionId":"01","sectionName":"全区","axis":"","seatId":"02010527","seatRow":"2","seatCol":"4","graphRow":"2","graphCol":"7","seatType":"0","state":"-1"},{"sectionId":"01","sectionName":"全区","axis":"","seatId":"02010528","seatRow":"2","seatCol":"3","graphRow":"2","graphCol":"8","seatType":"0","state":"-1"},{"sectionId":"01","sectionName":"全区","axis":"","seatId":"02010529","seatRow":"2","seatCol":"2","graphRow":"2","graphCol":"9","seatType":"0","state":"-1"},{"sectionId":"01","sectionName":"全区","axis":"","seatId":"02010530","seatRow":"2","seatCol":"1","graphRow":"2","graphCol":"10","seatType":"0","state":"-1"},{"sectionId":"01","sectionName":"全区","axis":"","seatId":"02010621","seatRow":"3","seatCol":"8","graphRow":"3","graphCol":"1","seatType":"0","state":"-1"},{"sectionId":"01","sectionName":"全区","axis":"","seatId":"02010622","seatRow":"3","seatCol":"7","graphRow":"3","graphCol":"2","seatType":"0","state":"-1"},{"sectionId":"01","sectionName":"全区","axis":"","seatId":"02010623","seatRow":"3","seatCol":"6","graphRow":"3","graphCol":"3","seatType":"0","state":"-1"},{"sectionId":"01","sectionName":"全区","axis":"","seatId":"02010624","seatRow":"3","seatCol":"5","graphRow":"3","graphCol":"4","seatType":"0","state":"-1"},{"sectionId":"01","sectionName":"全区","axis":"","seatId":"02010625","seatRow":"3","seatCol":"4","graphRow":"3","graphCol":"5","seatType":"0","state":"-1"},{"sectionId":"01","sectionName":"全区","axis":"","seatId":"02010626","seatRow":"3","seatCol":"3","graphRow":"3","graphCol":"6","seatType":"0","state":"-1"},{"sectionId":"01","sectionName":"全区","axis":"","seatId":"02010627","seatRow":"3","seatCol":"2","graphRow":"3","graphCol":"7","seatType":"0","state":"-1"},{"sectionId":"01","sectionName":"全区","axis":"","seatId":"02010628","seatRow":"3","seatCol":"1","graphRow":"3","graphCol":"8","seatType":"0","state":"-1"},{"sectionId":"01","sectionName":"全区","axis":"","seatId":"02010721","seatRow":"4","seatCol":"9","graphRow":"4","graphCol":"1","seatType":"0","state":"-1"},{"sectionId":"01","sectionName":"全区","axis":"","seatId":"02010722","seatRow":"4","seatCol":"8","graphRow":"4","graphCol":"2","seatType":"0","state":"-1"},{"sectionId":"01","sectionName":"全区","axis":"","seatId":"02010723","seatRow":"4","seatCol":"7","graphRow":"4","graphCol":"3","seatType":"0","state":"-1"},{"sectionId":"01","sectionName":"全区","axis":"","seatId":"02010724","seatRow":"4","seatCol":"6","graphRow":"4","graphCol":"4","seatType":"0","state":"-1"},{"sectionId":"01","sectionName":"全区","axis":"","seatId":"02010725","seatRow":"4","seatCol":"5","graphRow":"4","graphCol":"5","seatType":"0","state":"-1"},{"sectionId":"01","sectionName":"全区","axis":"","seatId":"02010726","seatRow":"4","seatCol":"4","graphRow":"4","graphCol":"6","seatType":"0","state":"-1"},{"sectionId":"01","sectionName":"全区","axis":"","seatId":"02010727","seatRow":"4","seatCol":"3","graphRow":"4","graphCol":"7","seatType":"0","state":"-1"},{"sectionId":"01","sectionName":"全区","axis":"","seatId":"02010728","seatRow":"4","seatCol":"2","graphRow":"4","graphCol":"8","seatType":"0","state":"-1"},{"sectionId":"01","sectionName":"全区","axis":"","seatId":"02010729","seatRow":"4","seatCol":"1","graphRow":"4","graphCol":"9","seatType":"0","state":"-1"},{"sectionId":"01","sectionName":"全区","axis":"","seatId":"02010821","seatRow":"5","seatCol":"9","graphRow":"5","graphCol":"1","seatType":"0","state":"-1"},{"sectionId":"01","sectionName":"全区","axis":"","seatId":"02010822","seatRow":"5","seatCol":"8","graphRow":"5","graphCol":"2","seatType":"0","state":"-1"},{"sectionId":"01","sectionName":"全区","axis":"","seatId":"02010823","seatRow":"5","seatCol":"7","graphRow":"5","graphCol":"3","seatType":"0","state":"-1"},{"sectionId":"01","sectionName":"全区","axis":"","seatId":"02010824","seatRow":"5","seatCol":"6","graphRow":"5","graphCol":"4","seatType":"0","state":"-1"},{"sectionId":"01","sectionName":"全区","axis":"","seatId":"02010825","seatRow":"5","seatCol":"5","graphRow":"5","graphCol":"5","seatType":"0","state":"-1"},{"sectionId":"01","sectionName":"全区","axis":"","seatId":"02010826","seatRow":"5","seatCol":"4","graphRow":"5","graphCol":"6","seatType":"0","state":"-1"},{"sectionId":"01","sectionName":"全区","axis":"","seatId":"02010827","seatRow":"5","seatCol":"3","graphRow":"5","graphCol":"7","seatType":"0","state":"-1"},{"sectionId":"01","sectionName":"全区","axis":"","seatId":"02010828","seatRow":"5","seatCol":"2","graphRow":"5","graphCol":"8","seatType":"0","state":"-1"},{"sectionId":"01","sectionName":"全区","axis":"","seatId":"02010829","seatRow":"5","seatCol":"1","graphRow":"5","graphCol":"9","seatType":"0","state":"-1"},{"sectionId":"01","sectionName":"全区","axis":"","seatId":"02010921","seatRow":"6","seatCol":"9","graphRow":"6","graphCol":"1","seatType":"0","state":"-1"},{"sectionId":"01","sectionName":"全区","axis":"","seatId":"02010922","seatRow":"6","seatCol":"8","graphRow":"6","graphCol":"2","seatType":"0","state":"-1"},{"sectionId":"01","sectionName":"全区","axis":"","seatId":"02010923","seatRow":"6","seatCol":"7","graphRow":"6","graphCol":"3","seatType":"0","state":"-1"},{"sectionId":"01","sectionName":"全区","axis":"","seatId":"02010924","seatRow":"6","seatCol":"6","graphRow":"6","graphCol":"4","seatType":"0","state":"-1"},{"sectionId":"01","sectionName":"全区","axis":"","seatId":"02010925","seatRow":"6","seatCol":"5","graphRow":"6","graphCol":"5","seatType":"0","state":"-1"},{"sectionId":"01","sectionName":"全区","axis":"","seatId":"02010926","seatRow":"6","seatCol":"4","graphRow":"6","graphCol":"6","seatType":"0","state":"-1"},{"sectionId":"01","sectionName":"全区","axis":"","seatId":"02010927","seatRow":"6","seatCol":"3","graphRow":"6","graphCol":"7","seatType":"0","state":"-1"},{"sectionId":"01","sectionName":"全区","axis":"","seatId":"02010928","seatRow":"6","seatCol":"2","graphRow":"6","graphCol":"8","seatType":"0","state":"-1"},{"sectionId":"01","sectionName":"全区","axis":"","seatId":"02010929","seatRow":"6","seatCol":"1","graphRow":"6","graphCol":"9","seatType":"0","state":"-1"},{"sectionId":"01","sectionName":"全区","axis":"","seatId":"02011021","seatRow":"7","seatCol":"9","graphRow":"7","graphCol":"1","seatType":"0","state":"-1"},{"sectionId":"01","sectionName":"全区","axis":"","seatId":"02011022","seatRow":"7","seatCol":"8","graphRow":"7","graphCol":"2","seatType":"0","state":"-1"},{"sectionId":"01","sectionName":"全区","axis":"","seatId":"02011023","seatRow":"7","seatCol":"7","graphRow":"7","graphCol":"3","seatType":"0","state":"-1"},{"sectionId":"01","sectionName":"全区","axis":"","seatId":"02011024","seatRow":"7","seatCol":"6","graphRow":"7","graphCol":"4","seatType":"0","state":"-1"},{"sectionId":"01","sectionName":"全区","axis":"","seatId":"02011025","seatRow":"7","seatCol":"5","graphRow":"7","graphCol":"5","seatType":"0","state":"-1"},{"sectionId":"01","sectionName":"全区","axis":"","seatId":"02011026","seatRow":"7","seatCol":"4","graphRow":"7","graphCol":"6","seatType":"0","state":"-1"},{"sectionId":"01","sectionName":"全区","axis":"","seatId":"02011027","seatRow":"7","seatCol":"3","graphRow":"7","graphCol":"7","seatType":"0","state":"-1"},{"sectionId":"01","sectionName":"全区","axis":"","seatId":"02011028","seatRow":"7","seatCol":"2","graphRow":"7","graphCol":"8","seatType":"0","state":"-1"},{"sectionId":"01","sectionName":"全区","axis":"","seatId":"02011029","seatRow":"7","seatCol":"1","graphRow":"7","graphCol":"9","seatType":"0","state":"-1"},{"sectionId":"01","sectionName":"全区","axis":"","seatId":"02011121","seatRow":"8","seatCol":"9","graphRow":"8","graphCol":"1","seatType":"0","state":"-1"},{"sectionId":"01","sectionName":"全区","axis":"","seatId":"02011122","seatRow":"8","seatCol":"8","graphRow":"8","graphCol":"2","seatType":"0","state":"-1"},{"sectionId":"01","sectionName":"全区","axis":"","seatId":"02011123","seatRow":"8","seatCol":"7","graphRow":"8","graphCol":"3","seatType":"0","state":"-1"},{"sectionId":"01","sectionName":"全区","axis":"","seatId":"02011124","seatRow":"8","seatCol":"6","graphRow":"8","graphCol":"4","seatType":"0","state":"-1"},{"sectionId":"01","sectionName":"全区","axis":"","seatId":"02011125","seatRow":"8","seatCol":"5","graphRow":"8","graphCol":"5","seatType":"0","state":"-1"},{"sectionId":"01","sectionName":"全区","axis":"","seatId":"02011126","seatRow":"8","seatCol":"4","graphRow":"8","graphCol":"6","seatType":"0","state":"-1"},{"sectionId":"01","sectionName":"全区","axis":"","seatId":"02011127","seatRow":"8","seatCol":"3","graphRow":"8","graphCol":"7","seatType":"0","state":"-1"},{"sectionId":"01","sectionName":"全区","axis":"","seatId":"02011128","seatRow":"8","seatCol":"2","graphRow":"8","graphCol":"8","seatType":"0","state":"-1"},{"sectionId":"01","sectionName":"全区","axis":"","seatId":"02011129","seatRow":"8","seatCol":"1","graphRow":"8","graphCol":"9","seatType":"0","state":"-1"}];
+	  $.each(seatInfos, function(i,val){
+		  var seatRow = val.seatRow;
+			 var seatCol = val.seatCol;
+		 var graphRow = val.graphRow;
+		 var graphCol = val.graphCol;
+		 var seatType = val.seatType;
+		 var seatType = val.seatType;
+		 var state = val.state;
+		 var seatCross = val.seatRow+":"+seatCol;
+		 var seatId = val.seatId;
+		 var sectionId=  val.sectionId;
+		 var id =graphRow+'_'+graphCol;
+		 $('#'+id).attr("title",seatRow+'排'+seatCol+'列');
+		 $('#'+id).attr("seatId",seatId);
+		 $('#'+id).attr("seatCross",seatCross);
+		 $('#'+id).attr("sectionId",sectionId);
+		 $('#'+id).attr("seatType",seatType);
+		 $('#'+id).attr("graphRow",graphRow);
+		 $('#'+id).attr("graphCol",graphCol);
+		 if(seatType == 0){
+			 if(state == 1){//可售
+				 $('#'+id).attr("class","seat_ture");
+			 }else{
+				 $('#'+id).attr("class","seat_false");
+			 }
+		 }else{
+			 if(state == 1){//可售
+				 $('#'+id).attr("class","seat_lover");
+			 }else{
+				 $('#'+id).attr("class","seat_false");
+			 }
+		 }
+	  }); 
+	  
+	  
+	  $("#selectSeatDd").html("");
+
+	  $("td i").click(function(){
+		  if( $(this).attr("class") =='seat_ture'){
+			  if(tikectCount < 4){
+				  tikectCount = tikectCount +1;
+				  var id=$(this).attr("id");
+				  var seatId=$(this).attr("seatId");
+				  var seatCross=$(this).attr("seatCross");
+				  var sectionId=$(this).attr("sectionId");
+				  $('#'+id).attr("class","seat_selected");
+				  $("#selectSeatDd").append("<span  seatCross='"+seatCross+"' seatid='"+seatId+"' class='seat_bg "+$(this).attr('id')+"'>"+$(this).attr("title")+"</span>");
+				  $("#sectionIdFilm").val(sectionId);
+			  }else{
+				  layer.msg('每笔订单最多可购买4张影票');
+			  }
+		  }else if ($(this).attr("class") =='seat_selected'){
+			  var id=$(this).attr("id");
+			  var seatId=$(this).attr("seatId");
+			  var seatCross=$(this).attr("seatCross");
+			  var sectionId=$(this).attr("sectionId");
+			  var seatType=$(this).attr("seatType");
+			  var graphRow=$(this).attr("graphRow");
+			  var graphCol=$(this).attr("graphCol");
+			  
+			  if(seatType == 1){
+				 
+				  tikectCount =tikectCount-2;
+				  var idw =graphRow+'_'+(parseInt(graphCol)+1);
+				 
+				  $('#'+idw).attr("class","seat_lover"); 
+				  $(this).attr("class","seat_lover");
+				  $("#selectSeatDd").children("."+$('#'+idw).attr('id')).remove(); 
+			  }else if(seatType == 2){
+				  tikectCount =tikectCount-2;
+				  var idw =graphRow+'_'+(parseInt(graphCol)-1);
+				 
+				  $('#'+idw).attr("class","seat_lover"); 
+				  $(this).attr("class","seat_lover");
+				  $("#selectSeatDd").children("."+$('#'+idw).attr('id')).remove(); 
+
+			  }else{
+				  tikectCount =tikectCount-1;
+				  $(this).attr("class","seat_ture");
+			  }
+			  
+			  $("#selectSeatDd").children("."+$(this).attr('id')).remove(); 
+			 
+		  }else if ($(this).attr("class") =='seat_lover'){
+			  if(tikectCount < 4){
+				  tikectCount = tikectCount +2;
+				  var id=$(this).attr("id");
+				  var seatId=$(this).attr("seatId");
+				  var seatCross=$(this).attr("seatCross");
+				  var sectionId=$(this).attr("sectionId");
+				  var seatType=$(this).attr("seatType");
+				  var graphRow=$(this).attr("graphRow");
+				  var graphCol=$(this).attr("graphCol");
+				  if(seatType == 1){
+					  var idw =graphRow+'_'+(parseInt(graphCol)+1);
+					  $('#'+idw).attr("class","seat_selected");
+					  
+					  $("#selectSeatDd").append("<span  seatCross='"+$('#'+idw).attr("seatCross")+"' seatid='"+$('#'+idw).attr("seatId")+"' class='seat_bg "+idw+"'>"+$('#'+idw).attr("title")+"</span>");
+				  }else{
+					  var idw =graphRow+'_'+(parseInt(graphCol)-1);
+					  $('#'+idw).attr("class","seat_selected"); 
+					  $("#selectSeatDd").append("<span  seatCross='"+$('#'+idw).attr("seatCross")+"' seatid='"+$('#'+idw).attr("seatId")+"' class='seat_bg "+idw+"'>"+$('#'+idw).attr("title")+"</span>");
+				  }
+				  
+				  $('#'+id).attr("class","seat_selected");
+				  
+				  $("#selectSeatDd").append("<span  seatCross='"+seatCross+"' seatid='"+seatId+"' class='seat_bg "+$(this).attr('id')+"'>"+$(this).attr("title")+"</span>");
+				  
+
+				  $("#sectionIdFilm").val(sectionId);
+			  }else{
+				  layer.msg('每笔订单最多可购买4张影票');
+			  }
+			 
+		  }
+		  
+		  
+		  var totalPrice = ticketPirce*tikectCount;
+		  $("#ticketInfo").text("￥"+totalPrice);
+		  $("#ticketCountNum").text("(共"+tikectCount+"张)"); 
+		  $("#ticketCountFilm").val(tikectCount);
+		  $("#totalPriceFilm").val(totalPrice);
+		  
+	  });
+	  setFootStyle();
+	 });
+	 
+function lockSeat(){
+	if(judgeLogin()==false){
+		return;
+	}
+	var inceptPhone =  $("#inceptPhone").val();
+	var  flag = checkMobile(inceptPhone);
+	if(!flag){
+		layer.msg("请填写正确的手机号码！");
+		return;
+	}
+	
+	var ticketCount =  $("#ticketCountFilm").val();
+	if(ticketCount == "" || ticketCount <= 0){
+		layer.msg("请选择座位后，再提交订单信息！");
+		return;
+	}
+	
+	var seatIds = "";
+	var seatCross= "";
+	var prices = "";
+	$("#selectSeatDd").children(".seat_bg").each(function(i,val){
+		if(i==0){
+			seatIds = seatIds + $(this).attr("seatId");
+			prices = prices + 38.0;
+			seatCross= seatCross +$(this).attr("seatCross");
+		}else{
+			seatIds = seatIds +"|"+ $(this).attr("seatId");
+			seatCross= seatCross+"|"+ $(this).attr("seatCross");
+			prices = prices +"|"+ 38.0;
+		}
+	});
+	$("#seatIdsFilm").val(seatIds);
+	$("#seatCrossFilm").val(seatCross);
+	$("#pricesFilm").val(prices);
+	
+	
+	
+	$.ajax({
+        cache: false,
+        type: "POST",
+        url:"/Film.jy/filmSaveOrder",
+		dataType : 'json',
+        data:$('#lockSeatForm').serialize(),// 你的formid
+        async: false,
+        error: function(request) {
+            layer.msg("请求失败！");
+        },
+        success: function(data) {
+        	if (data.result == 1) {
+				layer.msg(data.msg);
+				window.location.href = "/Film.jy/filmPayDetail?orderNum="+data.orderNum;
+			}
+			if (data.result == -1) {
+				layer.msg(data.msg);
+				
+			}
+        }
+    });
+	
+}
+	 
+	
+</script>
+<body>
+<link type="text/css" rel="stylesheet" href="css/jqgrid.css" />
+<link type="text/css" rel="stylesheet" href="css/ui.css" />
+<script src="/js/cookie.js?v=20160316" type="text/javascript"></script>
+<script type="text/javascript" src="/js/common.js?v=20160316"></script>
+<script src="/js/layer/layer.js?v=20160316"></script>
+<script src="/js/web/login.js?v=20160316"></script>
+<script src="/js/web/fastTicket/fastTicket.js?v=20160316"></script>
+<script src="/js/jquery.js?v=20160316"></script>
+<script src="/js/md5.js?v=20160316"></script>	
+<script src="/js/ui/jquery.combo.js?v=20160316"></script>
+<script src="/js/gotop.js?v=20160316"></script>
+<!--图片放大 -->
+<!-- <script type="text/javascript" -->
+
+<!-- <script type="text/javascript" -->
+
+<!-- <link rel="stylesheet" type="text/css" -->
+
+<!-- </head> -->
+<style>
+	.fast_ticket_box ul li{
+		cursor: pointer;
+	}
+</style>
+
+<div class="header">
+	<div class="header_inner pst">
+		<div class="logo_box f_fl">
+			<a href="/Index.jy"><img
+				src="images/logo_header.png"
+				alt="影店logo" /></a>
+		</div>
+		<div class="city_box f_fl pst" id="city_select">
+			<span class="city_name f_fl" id="select_cityName"></span> <span
+				class="city_arrow f_fl"></span>
+			<div class="f_clear"></div>
+			<div class="city_list" style="display: none;" id="city_list_div">
+				<div class="hot_city">
+					<dl>
+						<dt>热门</dt>
+						<dd id="hotCity"></dd>
+						<div class="f_clear"></div>
+					</dl>
+				</div>
+				<div class="city_info" id="city_info"></div>
+			</div>
+		</div>
+
+		<ul class="nav_box f_fl">
+			<li><a href='/Index.jy'>首页</a></li>
+			<li><a href='/Film.jy/index' class='selected'>电影</a></li>
+			<li><a href='/Cinema.jy/list'>影院</a></li>
+			<li><a href='/Perform.jy/list'>演出</a></li>
+			<li><a href='/ProductInfoForm.jy/list'>小卖部</a></li>
+			<li><a href='/WebActive.jy/list'>发现</a></li>
+			<div class="clear"></div>
+		</ul>
+		<div class="login_box f_fr">
+			<div class="login" id="login-zhuce">
+				<a href="javascript:void(0);" id="web_login">登录</a> <a href="/Register.jy/register">注册</a>
+			</div>
+			<!--
+			<div class="my_info" id="user-userinfo">
+				<a href="javascript:void(0);"> <span class="my_photo f_fl"><img
+						src="" id="userHeadImg"/></span> <span
+					class="my_name f_fl" id="user_nickName"></span> <span class="my_arrow f_fl"></span>
+					<div class="f_clear"></div>
+				</a>
+				 <div class="my_yd" id="my_ydList" style="display: none;">
+                	<ul>
+                    	<li style="text-align: center;"><a href="/UserInfo.jy/info">个人信息</a></li>
+                         <li><a href="#">订单管理</a></li> 
+                        <li style="text-align: center;"><a href="javascript:existsUser();">退出</a></li>
+                    </ul>
+                </div>
+				
+			</div>
+			-->
+		</div>
+		<a href="javascript:showFastTicket();" class="fast_ticket"><span>快速购票</span></a>
+		<a id="gotop" href="javascript:void(0)" title="回到顶部"></a>
+		<div class="f_clear"></div>
+	</div>
+</div>
+
+
+
+<!--登录开始-->
+<div class="login_layer" style="display: none;">
+	<div class="mask_wrap"></div>
+	<div class="login_info">
+		<h3>
+			<span class="f_fl">登录</span><span class="f_fr"><a href="javascript:;"
+				class="btn_close" onclick="$('.login_layer').hide()"></a></span>
+		</h3>
+		<div class="lgoin_ipt">
+			<dl>
+				<dt class="user_id"></dt>
+				<dd>
+					<input name="userId" id="userId" type="text" placeholder="请输入手机号码/账号"
+						class="ipt_txt" />
+				</dd>
+			</dl>
+			<dl>
+				<dt class="user_pw"></dt>
+				<dd>
+					<input name="password" id="password" type="password"
+						placeholder="请输入登录密码" class="ipt_txt" />
+				</dd>
+			</dl>
+			<dl id="login_code" style="display: none;">
+				<dt class="user_code"></dt>
+				<dd>
+					<span id="codeSpan"> <input name="code" id="code"
+						type="text" placeholder="请输入验证码" class="ipt_txt f_fl" style="width: 250px;" /> <img
+						id="codeImg"  class=" f_fr" width="65" style="margin-top: 2px;"
+								height="35" src="/WebLogin.jy/createCode"
+						onclick="changeLoginCode()" title="看不清，换一张">
+					</span>
+				</dd>
+			</dl>
+			<p>
+				<span class="f_fr"><a href="/Register.jy/forgetPwd">忘记密码？</a></span>
+			<div class="f_clear"></div>
+			<p>
+				<a href="javascript:login();" class=" btn_login"><i>立即登录</i></a>
+			</p>
+			<p>
+				还没有账号，<a href="/Register.jy/register">马上注册</a>
+			</p>
+		</div>
+	</div>
+</div>
+<!--登录结束-->
+
+
+
+<!-- 快速购票开始 -->
+<div class="fast_ticket_layer" style="display: none;">
+		<input type="hidden" id="fast_filmId" name="fast_filmId"/>
+		<input type="hidden" id="fast_cinemaId" name="fast_cinemaId"/>
+	
+	<form id="film_selectSeat" action="/Film.jy/filmSeat" method="post" style="display:none ">
+	<input type="hidden" id="filmId" name="filmId" value=""/>
+	<input type="hidden" id="filmName" name="filmName" value=""/>
+	<input type="hidden" id="cinemaCode" name="cinemaCode" value=""/>
+	<input type="hidden" id="cinemaName" name="cinemaName" value=""/>
+	<input type="hidden" id="cinemaLinkId" name="cinemaLinkId" value=""/>
+	<input type="hidden" id="spCode" name="spCode" value=""/>
+	<input type="hidden" id="showCode" name="showCode" value=""/>
+	<input type="hidden" id="hallCode" name="hallCode" value=""/>
+	<input type="hidden" id="hallName" name="hallName" value=""/>
+	<input type="hidden" id="sectionId" name="sectionId" value=""/>
+	<input type="hidden" id="showDate" name="showDate" value=""/>
+	<input type="hidden" id="showTime" name="showTime" value=""/>
+	<input type="hidden" id="price" name="price" value=""/>
+	<input type="hidden" id="filmType" name="filmType" value=""/>
+	<input type="hidden" id="activityId" name="activityId" value=""/>
+	<input type="hidden" id="orderPrice" name="orderPrice" value=""/>
+</form>
+	
+	
+    <div class="mask_wrap"></div>
+    <div class="ticket_infos">
+        <div class="fast_head">
+            <h3 class="fast_title">快速购票</h3>
+            <a href="#" class="btn_close f_fr" onclick="$('.fast_ticket_layer').hide()"></a>
+            <div class="f_clear"></div>
+        </div>
+        <div class="fast_ticket_box">
+        	<div class="fast_movie_list">
+            	<h3>热映电影</h3>
+                <ul id="fast-filmList"></ul>
+            </div>
+            <div class="fast_cinema_list">
+            	<h3>全部影院</h3>
+            	<p align="left" style="margin-left: 5px;"><span id="hot-countyList"></span></p>
+                <ul id="fast-cinemaList">
+                	
+                </ul>
+            </div>
+            <div class="fast_schedule_list">
+            	<h3>影院排期</h3>
+            	<p align="left" style="margin-left: 5px;">
+                    	<span id="hot-cinemaTime"></span>
+                    </p>
+                <ul id="hot-filmShowsDate">
+                	
+                </ul>
+            </div>
+            <div class="fast_order_info">
+            	<h3>订单信息</h3>
+                <div class="fast_order_detail">
+                	<div class="fast_order_photo">
+               	    	<img src="" width="170" height="222" id="order-filmImg"/> 
+                    </div>
+                    <h4 id="order-filmName"></h4>
+                    <p id="order-cinemaName"></p>
+                    <p id="order-showsDate"></p>
+                    <p id="order-showsTime"></p>
+                    <p id="order-standPrice"></p>
+                    <p id="order-price"></p>
+                    <p style=" height:auto; border-top:1px #eee solid; padding:10px 0; margin-top:10px;" align="center"><input name="" type="button" style="cursor: pointer;" class="ui_btn_orange" value="选座购票" onclick='javascript:submitTicket();' /></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 快速购票结束 -->
+
+
+
+
+<div class=" wrapper">
+  <!--选择座位开始-->
+  <div class="film_box">
+  	<div class="seats_box">
+    	<h4>选择座位</h4>
+        <div class="seat_tip">
+        	<dl>
+            	<dt><img src="images/icon_seat_blue.png" width="27" height="23" /></dt>
+                <dd>可选座位</dd>
+            </dl>
+            <dl>
+            	<dt><img src="images/icon_seat_green.png" width="27" height="23" /></dt>
+                <dd>已选座位</dd>
+            </dl>
+            <dl>
+            	<dt><img src="images/icon_seat_red.png" width="27" height="23" /></dt>
+                <dd>已售出</dd>
+            </dl>
+            <dl>
+            	<dt><img src="images/icon_seat_lover.png" width="27" height="23" /></dt>
+                <dd>情侣座位</dd>
+            </dl>
+            <div class="f_clear"></div>
+        </div>
+        <p class="screen_box">2号厅银幕</p>
+        <div class="scroll_wrapper pst">
+        	<ul class="row_list">
+        	
+        	
+     			 <li>1</li>
+    		
+     			 <li>2</li>
+    		
+     			 <li>3</li>
+    		
+     			 <li>4</li>
+    		
+     			 <li>5</li>
+    		
+     			 <li>6</li>
+    		
+     			 <li>7</li>
+    		
+     			 <li>8</li>
+    		
+           
+            </ul>
+            <div class="seats_select">
+           <div style=" width:360px;">
+            	<table width="100%" border="0" class="table_seat">
+            	
+            	
+     				 <tr>
+                    <td>
+                    
+                      <i id="1_1" class="seat_null" ></i>
+         
+                    
+                      <i id="1_2" class="seat_null" ></i>
+         
+                    
+                      <i id="1_3" class="seat_null" ></i>
+         
+                    
+                      <i id="1_4" class="seat_null" ></i>
+         
+                    
+                      <i id="1_5" class="seat_null" ></i>
+         
+                    
+                      <i id="1_6" class="seat_null" ></i>
+         
+                    
+                      <i id="1_7" class="seat_null" ></i>
+         
+                    
+                      <i id="1_8" class="seat_null" ></i>
+         
+                    
+                      <i id="1_9" class="seat_null" ></i>
+         
+                    
+                      <i id="1_10" class="seat_null" ></i>
+         
+                    
+                    </td>
+                  </tr>
+    		
+     				 <tr>
+                    <td>
+                    
+                      <i id="2_1" class="seat_null" ></i>
+         
+                    
+                      <i id="2_2" class="seat_null" ></i>
+         
+                    
+                      <i id="2_3" class="seat_null" ></i>
+         
+                    
+                      <i id="2_4" class="seat_null" ></i>
+         
+                    
+                      <i id="2_5" class="seat_null" ></i>
+         
+                    
+                      <i id="2_6" class="seat_null" ></i>
+         
+                    
+                      <i id="2_7" class="seat_null" ></i>
+         
+                    
+                      <i id="2_8" class="seat_null" ></i>
+         
+                    
+                      <i id="2_9" class="seat_null" ></i>
+         
+                    
+                      <i id="2_10" class="seat_null" ></i>
+         
+                    
+                    </td>
+                  </tr>
+    		
+     				 <tr>
+                    <td>
+                    
+                      <i id="3_1" class="seat_null" ></i>
+         
+                    
+                      <i id="3_2" class="seat_null" ></i>
+         
+                    
+                      <i id="3_3" class="seat_null" ></i>
+         
+                    
+                      <i id="3_4" class="seat_null" ></i>
+         
+                    
+                      <i id="3_5" class="seat_null" ></i>
+         
+                    
+                      <i id="3_6" class="seat_null" ></i>
+         
+                    
+                      <i id="3_7" class="seat_null" ></i>
+         
+                    
+                      <i id="3_8" class="seat_null" ></i>
+         
+                    
+                      <i id="3_9" class="seat_null" ></i>
+         
+                    
+                      <i id="3_10" class="seat_null" ></i>
+         
+                    
+                    </td>
+                  </tr>
+    		
+     				 <tr>
+                    <td>
+                    
+                      <i id="4_1" class="seat_null" ></i>
+         
+                    
+                      <i id="4_2" class="seat_null" ></i>
+         
+                    
+                      <i id="4_3" class="seat_null" ></i>
+         
+                    
+                      <i id="4_4" class="seat_null" ></i>
+         
+                    
+                      <i id="4_5" class="seat_null" ></i>
+         
+                    
+                      <i id="4_6" class="seat_null" ></i>
+         
+                    
+                      <i id="4_7" class="seat_null" ></i>
+         
+                    
+                      <i id="4_8" class="seat_null" ></i>
+         
+                    
+                      <i id="4_9" class="seat_null" ></i>
+         
+                    
+                      <i id="4_10" class="seat_null" ></i>
+         
+                    
+                    </td>
+                  </tr>
+    		
+     				 <tr>
+                    <td>
+                    
+                      <i id="5_1" class="seat_null" ></i>
+         
+                    
+                      <i id="5_2" class="seat_null" ></i>
+         
+                    
+                      <i id="5_3" class="seat_null" ></i>
+         
+                    
+                      <i id="5_4" class="seat_null" ></i>
+         
+                    
+                      <i id="5_5" class="seat_null" ></i>
+         
+                    
+                      <i id="5_6" class="seat_null" ></i>
+         
+                    
+                      <i id="5_7" class="seat_null" ></i>
+         
+                    
+                      <i id="5_8" class="seat_null" ></i>
+         
+                    
+                      <i id="5_9" class="seat_null" ></i>
+         
+                    
+                      <i id="5_10" class="seat_null" ></i>
+         
+                    
+                    </td>
+                  </tr>
+    		
+     				 <tr>
+                    <td>
+                    
+                      <i id="6_1" class="seat_null" ></i>
+         
+                    
+                      <i id="6_2" class="seat_null" ></i>
+         
+                    
+                      <i id="6_3" class="seat_null" ></i>
+         
+                    
+                      <i id="6_4" class="seat_null" ></i>
+         
+                    
+                      <i id="6_5" class="seat_null" ></i>
+         
+                    
+                      <i id="6_6" class="seat_null" ></i>
+         
+                    
+                      <i id="6_7" class="seat_null" ></i>
+         
+                    
+                      <i id="6_8" class="seat_null" ></i>
+         
+                    
+                      <i id="6_9" class="seat_null" ></i>
+         
+                    
+                      <i id="6_10" class="seat_null" ></i>
+         
+                    
+                    </td>
+                  </tr>
+    		
+     				 <tr>
+                    <td>
+                    
+                      <i id="7_1" class="seat_null" ></i>
+         
+                    
+                      <i id="7_2" class="seat_null" ></i>
+         
+                    
+                      <i id="7_3" class="seat_null" ></i>
+         
+                    
+                      <i id="7_4" class="seat_null" ></i>
+         
+                    
+                      <i id="7_5" class="seat_null" ></i>
+         
+                    
+                      <i id="7_6" class="seat_null" ></i>
+         
+                    
+                      <i id="7_7" class="seat_null" ></i>
+         
+                    
+                      <i id="7_8" class="seat_null" ></i>
+         
+                    
+                      <i id="7_9" class="seat_null" ></i>
+         
+                    
+                      <i id="7_10" class="seat_null" ></i>
+         
+                    
+                    </td>
+                  </tr>
+    		
+     				 <tr>
+                    <td>
+                    
+                      <i id="8_1" class="seat_null" ></i>
+         
+                    
+                      <i id="8_2" class="seat_null" ></i>
+         
+                    
+                      <i id="8_3" class="seat_null" ></i>
+         
+                    
+                      <i id="8_4" class="seat_null" ></i>
+         
+                    
+                      <i id="8_5" class="seat_null" ></i>
+         
+                    
+                      <i id="8_6" class="seat_null" ></i>
+         
+                    
+                      <i id="8_7" class="seat_null" ></i>
+         
+                    
+                      <i id="8_8" class="seat_null" ></i>
+         
+                    
+                      <i id="8_9" class="seat_null" ></i>
+         
+                    
+                      <i id="8_10" class="seat_null" ></i>
+         
+                    
+                    </td>
+                  </tr>
+    		
+                 
+                </table>
+                </div>
+            </div>
+            <div class="f_clear"></div>
+        </div>
+      
+        
+        
+     </div>
+     
+     <form id="lockSeatForm" action="/Film.jy/filmSaveOrder" method="post">
+     	
+	     <input id="spCodeFilm" name="spCode" type="hidden" value="sp002"/>
+	     <input id="cinemaIdFilm" name="cinemaId" type="hidden" value="sp00244224201"/>
+	     <input id="cinemaCodeFilm" name="cinemaCode" type="hidden" value="44224201"/>
+	     <input id="cinemaLinkIdFilm" name="cinemaLinkId" type="hidden" value=""/>
+	     <input id="sectionIdFilm" name="sectionId" type="hidden" value=""/>
+	     <input id="hallCodeFilm" name="hallCode" type="hidden" value="02"/>
+	     <input id="showDateFilm" name="showDate" type="hidden" value="2016-03-21"/>
+	     <input id="showTimeFilm" name="showTime" type="hidden" value="1750"/>
+	     <input id="filmNameFilm" name="filmName" type="hidden" value="荒野猎人"/>
+	     <input id="cinemaNameFilm" name="cinemaName" type="hidden" value="中影UL城市影院（坪山店）"/>
+	     <input id="showCodeFilm" name="showCode" type="hidden" value="176875562"/>
+	     <input id="activityIdFilm" name="activityId" type="hidden"   value=""/>
+	     <input id="hallNameFilm" name="hallName" type="hidden" value="2号厅"/>
+	     <input id="filmTypeFilm" name="filmType" type="hidden" value="2D"/>
+	     <input id="orderPriceFilm" name="orderPrice" type="hidden" value="35.0"/>
+	     <input id="ticketCountFilm" name="ticketCount" type="hidden"/>
+	     <input id="filmIdFilm" name="filmId" type="hidden" value="26149"/>
+	     <input id="seatIdsFilm" name="seatIds" type="hidden"/>
+	     <input id="seatCrossFilm" name="seatCross" type="hidden"/>
+	     <input id="pricesFilm" name="prices" type="hidden"/>
+	     <input id="totalPriceFilm" name="totalPrice" type="hidden" value=""/>
+	     
+     <div class="order_box">
+	    <div class="seat_tips" style=" margin-bottom:20px;">
+        	<dl>
+            	<dt>温馨提示：</dt>
+                <dd>1、为了方便您和他人购票，请勿间隔选座</dd>
+                <dd>2、每笔订单最多可购买4张影票</dd>
+                <dd>3、影院谢绝外带食品</dd>
+                <dd>4、影票一经售出，恕不退换</dd>
+                <dd>5、请在10分钟内完成支付，否则会导致购票失败</dd>
+            </dl>
+        </div>
+	     	<h4>订单信息</h4>
+	        <div class="order_detail">
+	            <dl>
+	                <dt>影片：</dt>
+	                <dd>荒野猎人 (2D)</dd>
+	                <div class="f_clear"></div>
+	            </dl>
+	            <dl>
+	                <dt>影院：</dt>
+	                <dd>中影UL城市影院（坪山店）</dd>
+	                <div class="f_clear"></div>
+	            </dl>
+	            <dl>
+	                <dt>影厅：</dt>
+	                <dd>2号厅</dd>
+	                <div class="f_clear"></div>
+	            </dl>
+	            <dl>
+	                <dt>时间：</dt>
+	                <dd>2016-03-21 1750<a href="/Cinema.jy/detail?id=sp00244224201">[修改场次]</a></dd>
+	                <div class="f_clear"></div>
+	            </dl>
+	            <dl>
+	                <dt>价格：</dt>
+	                <dd>￥38.0/张</dd>
+	                <div class="f_clear"></div>
+	            </dl>
+	            <dl>
+	                <dt>座位：</dt>
+	                <dd id="selectSeatDd">
+	                </dd>
+	                <div class="f_clear"></div>
+	            </dl>
+	        </div>
+	        <div class="price_num">订单金额：<i id="ticketInfo">￥0</i><i id="ticketCountNum">(共0张)</i></div>
+	        <div class="mobile_num">
+	        	<dl>
+	            	<dt>接收兑换码手机号：</dt>
+	                <dd><input name="inceptPhone"  id="inceptPhone" type="text" class="ipt_txt" placeholder="请输入手机号码" /></dd>
+	            </dl>
+	        </div>
+	        <p class="next_step" align="center"><input style="cursor: pointer;" name="" type="button" class="ui_btn_orange" value="下一步" onclick="lockSeat();"/></p>
+	     </div>
+     
+     </form>
+     <div class="f_clear"></div>
+  </div>
+  <!--选择座位结束-->
+</div>
+<!--footer 开始-->
+
+<div class="footer" id="yingdian_footer">
+  <div class="footer_inner">
+    	<div class="code_box">
+        	<dl>
+            	<dt><img src="images/yd_download.png" width="100" height="100" /></dt>
+                <dd>扫描下载APP</dd>
+            </dl>
+            <dl>
+           	  <dt><img src="images/yd_wx.png" width="100" height="100" /></dt>
+                <dd>关注影店微信</dd>
+            </dl>
+            <div class=" f_clear"></div>
+        </div>
+        <div class="hot_line">
+        	<p>客服热线</p>
+            <h3>400-882-1711</h3> 
+            
+        </div>
+        <div class="copy_right">
+        	<p>合作运营：院线通</p>
+            <p>Copyright &copy; 2010-2016 BaiHui. All Rights Reserved.</p>
+            <p>版权所有：深圳市百慧文化发展有限公司 粤ICP备11055320号-1</p>
+            <p><a href="/Index.jy/about">关于我们</a><a href="/Index.jy/legal">法律声明</a><a href="/Index.jy/copyright">版权声明</a></p>
+        </div>
+        <div class=" f_clear"></div>
+    </div>
+</div>
+
+
+<!--footer 结束-->
+
+</body>
+</html>
+
+
+

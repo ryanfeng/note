@@ -1,0 +1,534 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>影店首页</title>
+
+<link href="css/css.css" rel="stylesheet" type="text/css" />
+<link href="css/master.css" rel="stylesheet" />
+<script src="js/jquery-1.8.3.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="js/slide.js"></script>
+
+</head>
+
+<body>
+<link type="text/css" rel="stylesheet" href="/css/jqgrid.css" />
+<link type="text/css" rel="stylesheet" href="/css/ui.css" />
+<script src="js/cookie.js?v=20160316" type="text/javascript"></script>
+<script type="text/javascript" src="js/common.js?v=20160316"></script>
+<script src="/js/layer/layer.js?v=20160316"></script>
+<script src="/js/web/login.js?v=20160316"></script>
+<script src="/js/web/fastTicket/fastTicket.js?v=20160316"></script>
+<script src="/js/jquery.js?v=20160316"></script>
+<script src="/js/md5.js?v=20160316"></script>	
+<script src="/js/ui/jquery.combo.js?v=20160316"></script>
+<script src="js/gotop.js?v=20160316"></script>
+<!--图片放大 -->
+<!-- <script type="text/javascript" -->
+
+<!-- <script type="text/javascript" -->
+
+<!-- <link rel="stylesheet" type="text/css" -->
+
+<!-- </head> -->
+<style>
+	.fast_ticket_box ul li{
+		cursor: pointer;
+	}
+</style>
+
+<div class="header">
+	<div class="header_inner pst">
+		<div class="logo_box f_fl">
+			<a href="/Index.jy"><img
+				src="images/logo_header.png"
+				alt="影店logo" /></a>
+		</div>
+		<div class="city_box f_fl pst" id="city_select">
+			<span class="city_name f_fl" id="select_cityName"></span> <span
+				class="city_arrow f_fl"></span>
+			<div class="f_clear"></div>
+			<div class="city_list" style="display: none;" id="city_list_div">
+				<div class="hot_city">
+					<dl>
+						<dt>热门</dt>
+						<dd id="hotCity"></dd>
+						<div class="f_clear"></div>
+					</dl>
+				</div>
+				<div class="city_info" id="city_info"></div>
+			</div>
+		</div>
+
+		<ul class="nav_box f_fl">
+			<li><a href='/Index.jy' class='selected'>首页</a></li>
+			<li><a href='/Film.jy/index'>电影</a></li>
+			<li><a href='/Cinema.jy/list'>影院</a></li>
+			<li><a href='/Perform.jy/list'>演出</a></li>
+			<li><a href='/ProductInfoForm.jy/list'>小卖部</a></li>
+			<li><a href='/WebActive.jy/list'>发现</a></li>
+			<div class="clear"></div>
+		</ul>
+		
+		<div class="login_box f_fr">
+			<div class="login" id="login-zhuce">
+				<a href="javascript:void(0);" id="web_login">登录</a> <a href="/Register.jy/register">注册</a>
+			</div>
+			<!--
+			<div class="my_info" id="user-userinfo">
+				<a href="javascript:void(0);"> <span class="my_photo f_fl"><img
+						src="" id="userHeadImg"/></span> <span
+					class="my_name f_fl" id="user_nickName"></span> <span class="my_arrow f_fl"></span>
+					<div class="f_clear"></div>
+				</a>
+				 <div class="my_yd" id="my_ydList" style="display: none;">
+                	<ul>
+                    	<li style="text-align: center;"><a href="/UserInfo.jy/info">个人信息</a></li>
+                         <li><a href="#">订单管理</a></li> 
+                        <li style="text-align: center;"><a href="javascript:existsUser();">退出</a></li>
+                    </ul>
+                </div>
+			
+			</div>
+			-->	
+		</div>
+		<a href="javascript:showFastTicket();" class="fast_ticket"><span>快速购票</span></a>
+		<a id="gotop" href="javascript:void(0)" title="回到顶部"></a>
+		<div class="f_clear"></div>
+	</div>
+</div>
+
+
+
+<!--登录开始-->
+<div class="login_layer" style="display: none;">
+	<div class="mask_wrap"></div>
+	<div class="login_info">
+		<h3>
+			<span class="f_fl">登录</span><span class="f_fr"><a href="javascript:;"
+				class="btn_close" onclick="$('.login_layer').hide()"></a></span>
+		</h3>
+		<div class="lgoin_ipt">
+			<dl>
+				<dt class="user_id"></dt>
+				<dd>
+					<input name="userId" id="userId" type="text" placeholder="请输入手机号码/账号"
+						class="ipt_txt" />
+				</dd>
+			</dl>
+			<dl>
+				<dt class="user_pw"></dt>
+				<dd>
+					<input name="password" id="password" type="password"
+						placeholder="请输入登录密码" class="ipt_txt" />
+				</dd>
+			</dl>
+			<dl id="login_code" style="display: none;">
+				<dt class="user_code"></dt>
+				<dd>
+					<span id="codeSpan"> <input name="code" id="code"
+						type="text" placeholder="请输入验证码" class="ipt_txt f_fl" style="width: 250px;" /> <img
+						id="codeImg"  class=" f_fr" width="65" style="margin-top: 2px;"
+								height="35" src="/WebLogin.jy/createCode"
+						onclick="changeLoginCode()" title="看不清，换一张">
+					</span>
+				</dd>
+			</dl>
+			<p>
+				<span class="f_fr"><a href="/Register.jy/forgetPwd">忘记密码？</a></span>
+			<div class="f_clear"></div>
+			<p>
+				<a href="javascript:login();" class=" btn_login"><i>立即登录</i></a>
+			</p>
+			<p>
+				还没有账号，<a href="/Register.jy/register">马上注册</a>
+			</p>
+		</div>
+	</div>
+</div>
+<!--登录结束-->
+
+
+
+<!-- 快速购票开始 -->
+<div class="fast_ticket_layer" style="display: none;">
+		<input type="hidden" id="fast_filmId" name="fast_filmId"/>
+		<input type="hidden" id="fast_cinemaId" name="fast_cinemaId"/>
+	
+	<form id="film_selectSeat" action="/Film.jy/filmSeat" method="post" style="display:none ">
+	<input type="hidden" id="filmId" name="filmId" value=""/>
+	<input type="hidden" id="filmName" name="filmName" value=""/>
+	<input type="hidden" id="cinemaCode" name="cinemaCode" value=""/>
+	<input type="hidden" id="cinemaName" name="cinemaName" value=""/>
+	<input type="hidden" id="cinemaLinkId" name="cinemaLinkId" value=""/>
+	<input type="hidden" id="spCode" name="spCode" value=""/>
+	<input type="hidden" id="showCode" name="showCode" value=""/>
+	<input type="hidden" id="hallCode" name="hallCode" value=""/>
+	<input type="hidden" id="hallName" name="hallName" value=""/>
+	<input type="hidden" id="sectionId" name="sectionId" value=""/>
+	<input type="hidden" id="showDate" name="showDate" value=""/>
+	<input type="hidden" id="showTime" name="showTime" value=""/>
+	<input type="hidden" id="price" name="price" value=""/>
+	<input type="hidden" id="filmType" name="filmType" value=""/>
+	<input type="hidden" id="activityId" name="activityId" value=""/>
+	<input type="hidden" id="orderPrice" name="orderPrice" value=""/>
+</form>
+	
+	
+    <div class="mask_wrap"></div>
+    <div class="ticket_infos">
+        <div class="fast_head">
+            <h3 class="fast_title">快速购票</h3>
+            <a href="#" class="btn_close f_fr" onclick="$('.fast_ticket_layer').hide()"></a>
+            <div class="f_clear"></div>
+        </div>
+        <div class="fast_ticket_box">
+        	<div class="fast_movie_list">
+            	<h3>热映电影</h3>
+                <ul id="fast-filmList"></ul>
+            </div>
+            <div class="fast_cinema_list">
+            	<h3>全部影院</h3>
+            	<p align="left" style="margin-left: 5px;"><span id="hot-countyList"></span></p>
+                <ul id="fast-cinemaList">
+                	
+                </ul>
+            </div>
+            <div class="fast_schedule_list">
+            	<h3>影院排期</h3>
+            	<p align="left" style="margin-left: 5px;">
+                    	<span id="hot-cinemaTime"></span>
+                    </p>
+                <ul id="hot-filmShowsDate">
+                	
+                </ul>
+            </div>
+            <div class="fast_order_info">
+            	<h3>订单信息</h3>
+                <div class="fast_order_detail">
+                	<div class="fast_order_photo">
+               	    	<img src="" width="170" height="222" id="order-filmImg"/> 
+                    </div>
+                    <h4 id="order-filmName"></h4>
+                    <p id="order-cinemaName"></p>
+                    <p id="order-showsDate"></p>
+                    <p id="order-showsTime"></p>
+                    <p id="order-standPrice"></p>
+                    <p id="order-price"></p>
+                    <p style=" height:auto; border-top:1px #eee solid; padding:10px 0; margin-top:10px;" align="center"><input name="" type="button" style="cursor: pointer;" class="ui_btn_orange" value="选座购票" onclick='javascript:submitTicket();' /></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 快速购票结束 -->
+
+
+
+	<div class=" wrapper">
+		<!-- banner 开始 -->
+		<div id="playBox">
+			<div class="pre"></div>
+			<div class="next"></div>
+			<div class="smalltitle">
+				<ul>
+					<li class="thistitle"></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>	
+				</ul>
+			</div>
+			<ul class="oUlplay">
+				<li><a href="#" target="_blank"><img
+					title="下载页" src="http://yingdian.oss-cn-shenzhen.aliyuncs.com/active/73b83fecd490c5707e62078912220955"
+					width="980" height="410"></img></a>
+				</li>
+				<li><a href="http://mvhere.com/Film.jy/detail?title=荒野猎人" target="_blank"><img
+					title="荒野猎人" src="http://yingdian.oss-cn-shenzhen.aliyuncs.com/active/a26e2fb39a8a0468f98c68296ee49709"
+					width="980" height="410"></img></a>
+				</li>
+				<li><a href="http://mvhere.com/Film.jy/detail?title=叶问3" target="_blank"><img
+					title="叶问3" src="http://yingdian.oss-cn-shenzhen.aliyuncs.com/active/28901b2416caaea180001e26944b9cab"
+					width="980" height="410"></img></a>
+				</li>
+				<li><a href="http://mvhere.com/Film.jy/detail?title=疯狂动物城" target="_blank"><img
+					title="疯狂动物城" src="http://yingdian.oss-cn-shenzhen.aliyuncs.com/active/10a126deb4e4a3d698d7446943f8e30a"
+					width="980" height="410"></img></a>
+				</li>
+				<li><a href="http://mvhere.com/Perform.jy/detail?id=91862" target="_blank"><img
+					title="乌龙山伯爵" src="http://yingdian.oss-cn-shenzhen.aliyuncs.com/active/084df7f1d5b5c84f50174affaae49460"
+					width="980" height="410"></img></a>
+				</li>
+
+			</ul>
+		</div>
+		<!-- banner 结束 -->
+		<!--热映电影 开始-->
+		<div class="show_box">
+			<div class="title_box">
+				<h2 class="f_fl">热映电影</h2>
+				<a href="/Film.jy/index" class="f_fr"><span>更多 &gt;</span></a>
+				<div class="f_clear"></div>
+			</div>
+			<ul class="dy_list">
+				
+					<li style="width: 165px"><a href="javascript:void(0)"
+						onclick="filmInfoDetail('荒野猎人')" class="pst"><img
+							title="荒野猎人"
+							src="http://image.189mv.cn/images/filmlib/072bd046d7f4afafc1510b576ae370be_HB1_29140.jpg" /><i
+							class="score">8.9</i></a>
+						<p style="margin-top: 10px;">
+							<a href="javascript:void(0)"
+								onclick="filmInfoDetail('荒野猎人')">荒野猎人</a>
+						</p>
+						<p class="color_9 fz_12">
+							剧情,冒险,惊悚
+						</p>
+						<p>
+							<input style="cursor: pointer;" name="" type="button"
+								class="ui_btn_orange" value="选座购票"
+								onclick="filmInfoDetail('荒野猎人')" />
+						</p></li>
+				
+					<li style="width: 165px"><a href="javascript:void(0)"
+						onclick="filmInfoDetail('谍影特工')" class="pst"><img
+							title="谍影特工"
+							src="http://image.189mv.cn/images/filmlib/955c0dfd0df9b9832524de91fb7556ad_HB1_29116.jpg" /><i
+							class="score">7.2</i></a>
+						<p style="margin-top: 10px;">
+							<a href="javascript:void(0)"
+								onclick="filmInfoDetail('谍影特工')">谍影特工</a>
+						</p>
+						<p class="color_9 fz_12">
+							动作,惊悚
+						</p>
+						<p>
+							<input style="cursor: pointer;" name="" type="button"
+								class="ui_btn_orange" value="选座购票"
+								onclick="filmInfoDetail('谍影特工')" />
+						</p></li>
+				
+					<li style="width: 165px"><a href="javascript:void(0)"
+						onclick="filmInfoDetail('女汉子真爱公式')" class="pst"><img
+							title="女汉子真爱公式"
+							src="http://image.189mv.cn/images/filmlib/6e95c4ce0005ab6e9886b669eefd3a2a_HB1_29492.jpg" /><i
+							class="score">7.3</i></a>
+						<p style="margin-top: 10px;">
+							<a href="javascript:void(0)"
+								onclick="filmInfoDetail('女汉子真爱公式')">女汉子真爱公式</a>
+						</p>
+						<p class="color_9 fz_12">
+							爱情,喜剧
+						</p>
+						<p>
+							<input style="cursor: pointer;" name="" type="button"
+								class="ui_btn_orange" value="选座购票"
+								onclick="filmInfoDetail('女汉子真爱公式')" />
+						</p></li>
+				
+					<li style="width: 165px"><a href="javascript:void(0)"
+						onclick="filmInfoDetail('神战：权力之眼')" class="pst"><img
+							title="神战：权力之眼"
+							src="http://image.189mv.cn/images/filmlib/0e953ed363842c143106e913a82f717d_HB1_29180.jpg" /><i
+							class="score">7.3</i></a>
+						<p style="margin-top: 10px;">
+							<a href="javascript:void(0)"
+								onclick="filmInfoDetail('神战：权力之眼')">神战：权力之眼</a>
+						</p>
+						<p class="color_9 fz_12">
+							冒险,奇幻
+						</p>
+						<p>
+							<input style="cursor: pointer;" name="" type="button"
+								class="ui_btn_orange" value="选座购票"
+								onclick="filmInfoDetail('神战：权力之眼')" />
+						</p></li>
+				
+					<li style="width: 165px"><a href="javascript:void(0)"
+						onclick="filmInfoDetail('疯狂动物城')" class="pst"><img
+							title="疯狂动物城"
+							src="http://image.189mv.cn/images/filmlib/b3742d9732c0899fe22b21ba4c5ce334_HB1_28195.jpg" /><i
+							class="score">8.9</i></a>
+						<p style="margin-top: 10px;">
+							<a href="javascript:void(0)"
+								onclick="filmInfoDetail('疯狂动物城')">疯狂动物城</a>
+						</p>
+						<p class="color_9 fz_12">
+							动作,动画,冒险
+						</p>
+						<p>
+							<input style="cursor: pointer;" name="" type="button"
+								class="ui_btn_orange" value="选座购票"
+								onclick="filmInfoDetail('疯狂动物城')" />
+						</p></li>
+				
+				<div class=" f_clear"></div>
+			</ul>
+		</div>
+		<!--热映电影 结束-->
+		<!--热映演出 开始-->
+		<div class="show_box">
+			<div class="title_box">
+				<h2 class="f_fl">热门演出</h2>
+				<a href="/Perform.jy/list" class="f_fr"><span>更多 &gt;</span></a>
+				<div class="f_clear"></div>
+			</div>
+			<div class="yc_list">
+				<ul class="yc_right">
+					
+						<li ><a
+							href="/Perform.jy/detail?id=97912"><img
+								title="深圳大剧院爱乐乐团2016普及音乐会系列（三）" src="http://pimg.damai.cn/perform/project/979/97912_n.jpg" /></a>
+							<div class="yc_mask">
+								深圳大剧院爱乐乐团2016普及音乐会系列（三）
+							</div></li>
+					
+						<li ><a
+							href="/Perform.jy/detail?id=97911"><img
+								title="黄子芳钢琴独奏音乐会" src="http://yingdian.oss-cn-shenzhen.aliyuncs.com/performance/a0594843f7bde122ce6ebf39d81b8946" /></a>
+							<div class="yc_mask">
+								黄子芳钢琴独奏音乐会
+							</div></li>
+					
+						<li ><a
+							href="/Perform.jy/detail?id=97910"><img
+								title="爱乐乐团六一儿童节专场——动漫视听交响" src="http://yingdian.oss-cn-shenzhen.aliyuncs.com/performance/64e74c776429d547186d94b19fa7c61e" /></a>
+							<div class="yc_mask">
+								爱乐乐团六一儿童节专场——动漫视听交响
+							</div></li>
+					
+						<li style='margin-right: 0;'><a
+							href="/Perform.jy/detail?id=97906"><img
+								title="上海木偶剧团大型木偶卡通剧《三毛流浪记》" src="http://yingdian.oss-cn-shenzhen.aliyuncs.com/performance/59ae8e171e3f6f7d73ef67dd68023aa5" /></a>
+							<div class="yc_mask">
+								上海木偶剧团大型木偶卡通剧《三毛流浪记》
+							</div></li>
+					
+				</ul>
+				<div class="f_clear"></div>
+			</div>
+		</div>
+		<!--热映演出 结束-->
+
+		<!--影院 开始-->
+		<div class="show_box f_fl w_600 h_400">
+			<div class="title_box">
+				<h2 class="f_fl">热门活动</h2>
+				<a href="/WebActive.jy/list?tab=activity" class="f_fr"><span>更多 &gt;</span></a>
+				<div class="f_clear"></div>
+			</div>
+			<div class="show_info pst">
+				
+				 
+	          	<a href="/WebActive.jy/detail?id=9">
+				<img width="600" height="314" title="影店app每日抽奖任性送"
+						src="http://yingdian.oss-cn-shenzhen.aliyuncs.com/active/cb4c4f27c05c3ab3849502cfd90a14b8" />
+						<p>
+							影店app每日抽奖任性送
+						</p>
+						<div class="label_hot"></div>
+					</a>
+				
+
+			</div>
+		</div>
+
+		<div class="show_box f_fr w_280 h_400">
+			<div class="title_box">
+				<h2 class="f_fl ">合作影院</h2>
+				<a href="/Cinema.jy/list" class="f_fr"><span>更多 &gt;</span></a>
+				<div class="f_clear"></div>
+			</div>
+			<ul class="yy_list">
+				
+					<li><a href="/Cinema.jy/detail?id=sp01520000603">南国影城金光华店</a></li>
+				
+					<li><a href="/Cinema.jy/detail?id=sp00144036001">橙天嘉禾深圳影城</a></li>
+				
+					<li><a href="/Cinema.jy/detail?id=sp00144010402">深圳戏院</a></li>
+				
+					<li><a href="/Cinema.jy/detail?id=sp00144017901">UA_KK_Mall影城</a></li>
+				
+					<li><a href="/Cinema.jy/detail?id=sp00144220801">深影凤凰国际影城</a></li>
+				
+					<li><a href="/Cinema.jy/detail?id=sp020008">MCL洲立影城喜荟城店</a></li>
+				
+					<li><a href="/Cinema.jy/detail?id=sp00244011001">中影UL城市影院（莲塘店）</a></li>
+				
+					<li><a href="/Cinema.jy/detail?id=sp00244011311">中影UL城市影院（布心店）</a></li>
+				
+					<li><a href="/Cinema.jy/detail?id=sp00244222801">深圳中影百誉影城（东门店）</a></li>
+				
+					<li><a href="/Cinema.jy/detail?id=sp01520002842">太平洋影城·深圳东海店</a></li>
+				
+
+			</ul>
+		</div>
+		<!--影院结束 结束-->
+		<div class="f_clear"></div>
+	</div>
+	<!--footer 开始-->
+	
+<div class="footer" id="yingdian_footer">
+  <div class="footer_inner">
+    	<div class="code_box">
+        	<dl>
+            	<dt><img src="/images/yd_download.png" width="100" height="100" /></dt>
+                <dd>扫描下载APP</dd>
+            </dl>
+            <dl>
+           	  <dt><img src="/images/yd_wx.png" width="100" height="100" /></dt>
+                <dd>关注影店微信</dd>
+            </dl>
+            <div class=" f_clear"></div>
+        </div>
+        <div class="hot_line">
+        	<p>客服热线</p>
+            <h3>400-882-1711</h3> 
+            
+        </div>
+        <div class="copy_right">
+        	<p>合作运营：院线通</p>
+            <p>Copyright &copy; 2010-2016 BaiHui. All Rights Reserved.</p>
+            <p>版权所有：深圳市百慧文化发展有限公司 粤ICP备11055320号-1</p>
+            <p><a href="/Index.jy/about">关于我们</a><a href="/Index.jy/legal">法律声明</a><a href="/Index.jy/copyright">版权声明</a></p>
+        </div>
+        <div class=" f_clear"></div>
+    </div>
+</div>
+
+
+	<!--footer 结束-->
+	<script>
+		function filmInfoDetail(title) {
+			location.href = '/Film.jy/detail?title=' + encodeURI(encodeURI(title));
+		}
+
+		var cityChange = eval(cityChange);
+		$(function() {
+			$('#index_province')
+					.change(
+							function() {
+								for ( var i in cityChange) {
+									if (i == this.value) {
+										var index_city_obj = $('#index_city')[0];
+										index_city_obj.innerHTML = '';
+										var obj = cityChange[i];
+										for ( var k in obj) {
+											if (obj[k].name) {
+												index_city_obj.options[index_city_obj.options.length] = new Option(
+														obj[k].name,
+														obj[k].pinyin);
+											}
+										}
+										break;
+									}
+								}
+
+							});
+		})
+	</script>
+</body>
+
+</html>
