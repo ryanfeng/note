@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<canvas id="canvas" style="margin: 0 auto; display:block;"></canvas>
+
+	<script type="text/javascript">
+		var canvas = document.getElementById("canvas");
+		var context = canvas.getContext("2d");
+		var offcanvas = document.createElement("canvas");
+		var offcontext = offcanvas.getContext("2d");	
+
+		canvas.width = 600;
+		canvas.height = 400;
+		var radius = 100;
+		offcanvas.width = radius * 2; 
+		offcanvas.height = radius * 2; 
+
+		var img = new Image();
+		img.src="img-lg.jpg";
+		var scale;
+		img.onload = function() {
+			context.drawImage(img, 0, 0, canvas.width, canvas.height);
+			scale = img.width / canvas.width;
+		}
+		
+		var isdown = false;
+		canvas.onmousemove = function(e) {
+			if(isdown){
+				var canvasXY = canvas.getBoundingClientRect();
+				var x = e.clientX - canvasXY.left;
+				var y = e.clientY - canvasXY.top;
+				context.clearRect(0, 0, canvas.width, canvas.height);
+				context.drawImage(img, 0, 0, canvas.width, canvas.height);
+				drawOffCanvas(x, y);
+			} else {
+				context.clearRect(0, 0, canvas.width, canvas.height);
+				context.drawImage(img, 0, 0, canvas.width, canvas.height);
+			}
+		}
+
+		canvas.onmousedown = function() {
+			isdown = true;	
+		}
+
+		canvas.onmouseup = function() {
+			isdown = false;
+		}
+
+		canvas.onmouseout = function() {
+			isdown = false;
+		}
+
+		function drawOffCanvas(x, y) {
+			offcontext.drawImage(img, x*scale - radius, y*scale -radius, 
+				offcanvas.width, offcanvas.height, 0, 0, offcanvas.width, offcanvas.height);
+			
+			context.lineWidth = 10.0;
+            context.strokeStyle = "#069";
+
+			context.beginPath();
+			context.arc(x, y, radius, 0, Math.PI*2);
+            context.stroke();
+
+            context.save();
+            context.clip();
+			context.drawImage(offcanvas, x-radius, y-radius, offcanvas.width, offcanvas.height);
+			context.restore();
+		}
+
+	</script>	
+</body>
+</html>
