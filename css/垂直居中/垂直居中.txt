@@ -1,0 +1,16 @@
+垂直居中
+	1.position:relative
+	  top:50%;
+	  margin-top:-150px
+	2.position:relative
+	  top:50%;
+	  transform:translateY(-50%);
+	3.display:flex;
+	  align-items:center;
+	  justify-content:center;
+	4.display:flex;
+	  flex-directive:column;
+	  	  margin: auto;			  
+	4.display:table;
+	  	  display:table-cell;
+	  	  vertical-align:middle;	  	     		
