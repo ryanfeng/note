@@ -13,7 +13,15 @@
 	grunt
 	glup
 2.
-	zepTo.js	 
+	zepTo.js
+
+3. DataUrl
+   Blob/file
+   Base64
+
+4. js立即执行函数
+5. jquery全屏滚动fullPage.js    		 
+
 	
 
 		
