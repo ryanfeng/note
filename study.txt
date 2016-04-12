@@ -20,7 +20,12 @@
    Base64
 
 4. js立即执行函数
-5. jquery全屏滚动fullPage.js    		 
+5. jquery全屏滚动fullPage.js
+6. 爆炸
+7. 正则表达式
+8. 浏览器内核
+9. callee 和caller的区别
+10. 快速排序		 
 
 	
 
