@@ -1,5 +1,6 @@
 http://blog.csdn.net/zaifendou/article/details/5746988
 http://www.regexlab.com/zh/deelx/syntax.htm
+http://www.cnblogs.com/zfc2201/archive/2012/12/18/2824107.html
 
 1. 普通方式
 	var reg=/a*b/;
@@ -32,3 +33,12 @@ String对象方法:
 		var rs=str.replace(regx,”00”);
 		rs的值为：003userddd0045
 	4.split(expr)	
+
+邮箱
+var reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/g;
+
+手机号码
+var mobile = /^((13[0-9]{1})|159|153)+\d{8}$/;
+var mobile1 = /^(13+\d{9})|(159+\d{8})|(153+\d{8})$/;
+
+
