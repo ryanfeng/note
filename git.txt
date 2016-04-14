@@ -6,8 +6,11 @@ $ git config --global user.email "email@example.com"
 初始化
 git init
 git status 工作区的状态
-git diff 查看修改的内容 http://www.cnblogs.com/wish123/p/3963224.html
-		 --stat
+
+git diff
+		查看修改的内容 http://www.cnblogs.com/wish123/p/3963224.html
+		--stat
+git diff HEAD -- readme.txt
 
 SSH Key
 $ ssh-keygen -t rsa -C "youremail@example.com"
@@ -18,8 +21,21 @@ git add xxx.txt 提交到暂存区
 git commit -m  'xxxxxxx' 提交到版本库
 
 版本回退commit：针对提交到版本库的
-git reset --hard commit_id 或者 HEAD^/^^/～100
+git reset --hard commit_id 
+    reset --hard HEAD^
+    reset --hard HEAD^^ 
+    reset --hard HEAD～100
 
+git reset HEAD <filename> 把暂存区的修改撤销掉（unstage），重新放回工作区：
+
+git reflog
+		可以查看所有分支的所有操作记录（包括（包括commit和reset的操作）
+
+修改回退:
+git checkout -- <filename> 
+
+删除（主要可以回退找回）
+git rm 'file'
 
 git log：http://www.cnblogs.com/BeginMan/p/3577553.html 
 	-n 显示信息数量
@@ -43,15 +59,6 @@ git tag 查看所有标签
 	push origin <tagname> 推送一个本地标签；
 	push origin --tags 全部
 	push origin :refs/tags/<tagname>删除一个远程标签。
-
-git reflog  回到未来的哪个版本版本
-修改回退add：
-git reset HEAD 'file'
-修改回退:
-git checkout -- 'file'
-
-删除（主要可以回退找回）
-git rm 'file'
 
 链接远端分支
 克隆
