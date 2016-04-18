@@ -1,0 +1,1 @@
+http://hellobug.github.io/blog/angularjs-providers/
