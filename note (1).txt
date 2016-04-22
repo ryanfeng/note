@@ -1,47 +1,18 @@
-﻿k468 k466
-k753 
-
-K464
-
-歌曲：
+﻿歌曲：
 	初爱
 	相对你说
 	我们好像在哪见过
 	你必须幸福
 
-知识小记：
-
-懒加载
-http://blog.csdn.net/qq673318522/article/details/50733878
-http://fedeoo.github.io/%E7%BF%BB%E8%AF%91/2014/11/01/angular-lazy-load
-http://www.tuicool.com/articles/3Mbi2y6
-http://www.ituring.com.cn/tupubarticle/1385
-http://ju.outofmemory.cn/entry/103772
-
-angularjs原理
-http://www.angularjs.cn/A0AX
-http://www.tuicool.com/articles/qIBNve
-http://www.angularjs.cn/A0a6
-http://www.tuicool.com/articles/aiayI3
-http://hellobug.github.io/blog/angularjs-providers/
-http://bijian1013.iteye.com/blog/2111306
-
 微信
 https://mp.weixin.qq.com/wiki/10/e5f772f4521da17fa0d7304f68b97d7e.html
-
-
-公司账号：
-http://www.sdll18.com:3000
-http://www.alexa.cn/
 
 导师账号：
 jc4443@columbia.edu
 chenjunnan
 
-532558098@qq.com
-jc4443@columbia.edu
-
-enj666@163.com luenjiong
+enj666@163.com
+luenjiong
 
 sfreedom6000@gmail.com
 nicheng
@@ -49,179 +20,9 @@ nicheng
 个人信息：
 152626199303185121 浙A8992
 
-html5学习
-============================================================
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-============================================================
-
-Http学习
-============================================================
-OPTIONS http://mail.163.com/ HTTP/1.1
-Host: mail.163.com
-Connection: Keep-Alive
-GET http://mail.163.com/ HTTP/1.1
-Host: mail.163.com
-TRACE http://mail.163.com/ HTTP/1.1
-Host: mail.163.com
-
-GET http://www.baidu.com/ HTTP/1.1
-Host: www.baidu.com
-OPTIONS http://www.baidu.com/ HTTP/1.1
-Host: www.baidu.com
-TRACE http://www.baidu.com/ HTTP/1.1
-Host: www.baidu.com
-HEAD http://www.baidu.com/ HTTP/1.1
-Host: www.baidu.com
-
-TRACE / HTTP/1.1
-Host: www.1yingli.cn
-============================================================
-
-
-css学下笔记一
-=========================================================
-1. 内联元素、块级元素
-2. ul:list-style-type:none/circle/square            
-	ul{
-   	 list-style-type:none;
-   	 margin:0;
-   	 padding:0;
-   	 overflow:hidden;
-    }
-    方式一:        
-	   	li{
-	   	 display:inline;
-	    }
-    方式二：
-    	li{
-    	 float:left;	
-	    }
-	    a{
-	     display:block;
-	     width:60px;
-	     text-decoration:none;
-	    }	
-3. visibility:visible/hidden/collapse
-4. clear:left/right/both/none;(规定元素的哪一侧不允许其他浮动元素)
-7: opacity:0.5;
-8: @media screen
-9: <link rel="stylesheet" type="text/css" href=""/>
-10: 属性选择器[type="button"]=/~=(包含)/|=(指定元素开头的单词/^=/$=
-	[title]{
-		color:red;
-	}
-	input[type='button']{
-	}
-11: background-image: url('');
-	backgroung-position: top/center/bottom/20px 100px;
-	backgroung-color: transparent;
-	background-repeat；repeat/repeat-x/repeat-y/no-repeat;
-	background-attachment: fixed/scroll;
-	background: #ff0000 url('') no-repeat fixed center;
-
-5: text-decoration:none/underline/overline/line-through/blink;
-6：text-transform:none/uppercase/lowercase/capitalize
-12: word-spacing：0 
-	  letter-spacing：0  两者的区别:单个和整体
-13：white-space:normal(处理空白符)/pre(不做处理)/nowrap(防止文本换行)
-
-14：font-family: Times, TimesNR, 'New Century Schoolbook', Georgia, 'New York', serif;
-15：em：相对于父类元素的自己大小。
-			body {font-size:100%;}
-			h1 {font-size:3.75em;}
-			h2 {font-size:2.5em;}
-			p {font-size:0.875em;}
-16：font-variant:normal/small-caps
-
-17：a:link/a:visited/a:hover/a:active	
-18：外边距合并：只有普通文档流中块框的垂直外边距才会发生，行内框、浮动框或绝对定位之间的外边距不会合并。
-19：clip剪裁绝对定位元素（position:absolute）rect(0, 50px, 100px ,0)
-20: 文件对齐vertical-align:text-top/middle;
-21：元素选择器:
-		> 子元素选择器
-		+ 相邻兄弟选择器
-	伪类：
-		link,visited,hover,active,focus,first-child,lang
-	伪元素：
-		first-line
-		first-letter
-		before{
-			content：url();
-		}	
-22: 如何处理浮动清理问题
-	1.布局最后面使用空的div，使用clear：both。会不parentDiv高度撑起。
-	2.parentDiv也浮动起来。
-	3.overflow:hidden,auto.
-	4.parentDiv添加类clear
-		.clear:after{
-			content:'.';
-			height:0;
-			visibility:hidden;
-			display:block;
-			clear:both;
-		}	
-23:普通文档流中块框的垂直外边框才会发生外边距折叠。
-24：width:指的是内容宽度，不包括内边距，
-========================================================
 
 
 
-css学下笔记二
-========================================================
-css文件嵌套：@import url(style.css);
-background:
-		background-image:url(bg_flower.gif),url(bg_flower_2.gif); 多个背景图
-		background-size: 20px, 30px; 
-		background-origin: border-box/padding-box/content-box
-		background-clip:border-box/padding-box/content-box
-		(background-clip 用来判断 background 是否包含 border 区域。而 background-origin 用来决定 background-position 计算的参考位置。)
-文本效果：
-		text-overflow: clip/ellipsis(省略号)
-		text-shadow:  5px 5px 5px #FF0000; 文本阴影
-		word-wrap: break-word; 在长单词或URL地址内部进行换行
-		word-break: break-all;
-字体设置：
-		@font-face{
-			font-family: myFirstFont;
-			src: url('Sansation_Bold.ttf');
-			font-weight:bold;
-		}
-用户界面：
-		resize:both. 是否可由用户调整元素尺寸。
-旋转transform:
-		div{
-			transform:rotate(30deg); (把元素顺时针旋转30度)
-			transform:translate(10px, 50px); (把元素从左侧移动10像素，从顶端移动50像素。)
-			transform:scale(2,4)  (把宽度转换为原始尺寸的 2 倍，把高度转换为原始高度的 4 倍)
-			transform:skew(20deg,30deg) (围绕 X 轴把元素翻转 20 度，围绕 Y 轴翻转 30 度)
- 		}
-过渡transition:
-		div{
-			transition: width 2s;
-			-moz-transition: width 2s;
-			-o-transition: width 2s;
-			//-webkit-transition: width 2s, height 2s, -webkit-transform 2s;
-			//transition: width 1s linear/ease/ease-in/ease-out 2s;
-		}
-		div:hover
-		{
-			width:200px;
-			height:200px;
-			-webkit-transform: rotate(360deg);
-		}
-动画animation:（@keyframes规则）
-		div{
-			animation: '@keyframes' 5s;
-		}
-		//@-moz-keyframes myfirst 
-		@keyframes myfirst{
-			0%   {background: red; left:0px; top:0px;}
-			25%  {background: yellow; left:200px; top:0px;}
-			50%  {background: blue; left:200px; top:200px;}
-			75%  {background: green; left:0px; top:200px;}
-			100% {background: red; left:0px; top:0px;}
-		}
-========================================================
 
 
 
