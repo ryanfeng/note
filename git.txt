@@ -1,3 +1,5 @@
+http://www.cnblogs.com/cspku/articles/Git_cmds.html
+
 GIt学习笔记
 ============================================================
 $ git config --global user.name "Your Name"

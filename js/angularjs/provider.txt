@@ -1,0 +1,2 @@
+http://hellobug.github.io/blog/angularjs-providers/
+http://www.angularjs.cn/A086

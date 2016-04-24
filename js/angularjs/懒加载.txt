@@ -1,0 +1,82 @@
+http://fedeoo.github.io/%E7%BF%BB%E8%AF%91/2014/11/01/angular-lazy-load
+http://ju.outofmemory.cn/entry/103772
+方法一：
+	(function()
+	{
+	    var app = angular.module('app', []);
+
+	    app.config(function($routeProvider, $controllerProvider, $compileProvider, $filterProvider, $provide)
+	    {
+	        app.controllerProvider = $controllerProvider;
+	        app.compileProvider    = $compileProvider;
+	        app.routeProvider      = $routeProvider;
+	        app.filterProvider     = $filterProvider;
+	        app.provide            = $provide;
+
+	        // Register routes with the $routeProvider
+	        $routeProvider.when('/', {templateUrl:'views/home.html'});
+	        $routeProvider.when('/about', {templateUrl:'views/about.html', resolve:{deps:function($q, $rootScope)
+	        {
+	            var deferred = $q.defer();
+	            var dependencies =
+	            [
+	                'controllers/AboutViewController.js',
+	                'directives/some-directive.js'
+	            ];
+
+	            $script(dependencies, function()
+	            {
+	                // all dependencies have now been loaded by $script.js so resolve the promise
+	                $rootScope.$apply(function()
+	                {
+	                    deferred.resolve();
+	                });
+	            });
+
+	            return deferred.promise;
+	        }}});
+	    });
+	})();
+
+	$script(['appModule.js'], function()
+	{
+	    angular.bootstrap(document, ['app'])
+	});
+
+http://blog.csdn.net/qq673318522/article/details/50733878
+http://www.tuicool.com/articles/3Mbi2y6
+方法二：
+	angular.module('myApp',['oc.lazyLoad']);
+
+	.config(['$ocLazyLoadProvider', function($ocLazyLoadProvider){
+	    $ocLazyLoadProvider.config({
+	        debug: true,
+	        events: true,
+	        modules: [
+	            {
+	                name: 'TestModule',
+	                files: ['test.js']
+	            }
+	        ]
+	    })
+	}])	
+
+	.config(['$routeProvider', function($routeProvider) {
+        $routeProvider.otherwise('/index');
+        $routeProvider.when('/index', {
+            templateUrl: 'index.html',
+            controller: 'IndexController',
+            resolve: { //  resolve 里的属性如果返回的是 promise对象，那么resolve将会在view加载之前执行
+                loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
+                    // 在这里可以延迟加载任何文件或者刚才预定义的modules
+                    return $ocLazyLoad.load('TestModule'); //加载刚才定义的TestModule
+                    /*return $ocLazyLoad.load([   // 如果要加载多个module，需要写成数组的形式
+                        'TestModule',
+                        'MainModule'
+                        ]);*/
+                }]
+            }
+        })
+    }])
+
+    ocLazyLoad提供的功能更加丰富，不止动态加载模块和依赖，还能动态加载service，diretive等。更多的功能，可以访问[ocLazyLoad官网](https://oclazyload.readme.io)

@@ -1,3 +1,7 @@
+http://www.301se.com
+http://www.cnblogs.com/Darren_code/archive/2011/12/31/property.html
+
+
 1:
 	面试宝典
 	js:
@@ -25,7 +29,16 @@
 7. 正则表达式
 8. 浏览器内核
 9. callee 和caller的区别
-10. 快速排序		 
+10. 快速排序
+11. react.js
+12. seajs（JavaScript模块载入框架）	
+		http://www.tuicool.com/articles/3uIZzy
+		http://yslove.net/seajs/
+13. 适配端页面点击事件（时间问题）
+14. 页面优化
+15. node.js
+16. linux
+
 
 	
 

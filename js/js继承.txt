@@ -1,0 +1,64 @@
+参考：
+	http://blog.csdn.net/youyajie/article/details/8018685
+	http://javapolo.iteye.com/blog/1996871
+	http://www.poluoluo.com/jzxy/201204/163819.html
+	http://www.w3school.com.cn/js/pro_js_inheritance_implementing.asp
+主要分为两种方式：
+	1.对象冒充(call,apply)
+		示例一下
+		function Parent(firstname)  
+		{  
+		    this.fname=firstname;  
+		    this.age=40;  
+		    this.sayAge=function()  
+		    {  
+		        console.log(this.age);  
+		    }  
+		}  
+		function Child(firstname)  
+		{  
+		    this.parent=Parent;  
+		    this.parent(firstname);  
+		    delete this.parent;  
+		    this.saySomeThing=function()  
+		    {  
+		        console.log(this.fname);  
+		        this.sayAge();  
+		    }  
+		}  
+		var mychild=new  Child("李");  
+		mychild.saySomeThing();  
+
+		可以实现多重继承
+		必须使用构造函数方式	
+
+	2.原型方式(prototype) 	
+		原型链的弊端是不支持多重继承
+		原型链会用另一类型的对象重写类的 prototype 属性。
+		就无法使用带参数的构造函数
+
+	3.混合方式
+	function ClassA(sColor) {
+	    this.color = sColor;
+	}
+
+	ClassA.prototype.sayColor = function () {
+	    alert(this.color);
+	};
+
+	function ClassB(sColor, sName) {
+	    ClassA.call(this, sColor);
+	    this.name = sName;
+	}
+
+	ClassB.prototype = new ClassA();
+
+	ClassB.prototype.sayName = function () {
+	    alert(this.name);
+	};	
+
+	var objA = new ClassA("blue");
+	var objB = new ClassB("red", "John");
+	objA.sayColor();	//输出 "blue"
+	objB.sayColor();	//输出 "red"
+	objB.sayName();	//输出 "John"

@@ -1,0 +1,22 @@
+Http学习
+============================================================
+OPTIONS http://mail.163.com/ HTTP/1.1
+Host: mail.163.com
+Connection: Keep-Alive
+GET http://mail.163.com/ HTTP/1.1
+Host: mail.163.com
+TRACE http://mail.163.com/ HTTP/1.1
+Host: mail.163.com
+
+GET http://www.baidu.com/ HTTP/1.1
+Host: www.baidu.com
+OPTIONS http://www.baidu.com/ HTTP/1.1
+Host: www.baidu.com
+TRACE http://www.baidu.com/ HTTP/1.1
+Host: www.baidu.com
+HEAD http://www.baidu.com/ HTTP/1.1
+Host: www.baidu.com
+
+TRACE / HTTP/1.1
+Host: www.1yingli.cn
+============================================================

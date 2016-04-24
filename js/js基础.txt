@@ -1,0 +1,150 @@
+1.JavaScript:EAMCScript + Dom + Bom
+2.特点：区分大小写，变量是弱类型的。
+3.变量命名：下划线、字母、$开头。
+
+4.原始值(Undefined,Null,Boolean,Number,String):栈（stack）;引用值:堆（heap）。
+5.Null: typeof如果变量是一种引用类型或 Null 类型的: object。
+6.Unfinied: var temp; -->undefined ,alert(typeof oTemp2); -->undifined
+7.Number:8进制 0开头，16进制 0x开头。
+
+8.Infinity: 无穷大 isFinite();
+9.NaN: 非数字 isNaN; alert(NaN == NaN);  //输出 "false"
+
+10.类型转化
+		toString()
+		parseInt()
+		parseFloat()
+		强制类型转化：
+			Boolean(value)
+			Number(value)
+			String(value)
+
+String方法:
+11.instanceof 和 typeof的区别
+	var oStringObject = new String("hello world");
+	alert(oStringObject instanceof String);	//输出 "true"
+	typeof 引用类型的值都会返回 object
+
+12.toLowerCase()/toLocaleLowerCase()/toUpperCase()/toLocaleUpperCase()
+
+13.slice()与substring()的区别
+	var oStringObject = new String("hello world");
+	
+	alert(oStringObject.slice("3"));		//输出 "lo world"
+	alert(oStringObject.substring("3"));		//输出 "lo world"
+	alert(oStringObject.slice("3", "7"));		//输出 "lo w"
+	alert(oStringObject.substring("3", "7"));	//输出 "lo w"
+
+	var oStringObject = new String("hello world");
+
+	alert(oStringObject.slice("-3"));		//输出 "rld"
+	alert(oStringObject.substring("-3"));	//输出 "hello world"
+	alert(oStringObject.slice("3, -4"));		//输出 "lo w"
+	alert(oStringObject.substring("3, -4"));	//输出 "hel"   
+
+14.indexOf() 与 lastIndexOf()的区别: indexof(e) 
+15.charAt() 与 charCodeAt() 的区别: charAt(2)
+
+16.localCompare() 比较两个字符串大小
+17.concat() 结合两个字符串
+
+18.split(",") 分割成数组
+
+19.比较：
+	var bResult = "25" < "3";
+	alert(bResult);	//输出 "true"
+
+	var bResult = "25" < 3;
+	alert(bResult);	//输出 "false"
+
+	无论何时比较一个数字和一个字符串，ECMAScript 都会把字符串转换成数字，然后按照数字顺序比较它们。
+
+	var bResult = "a" < 3;
+	alert(bResult); //输出 “false”
+	如果对它调用 parseInt() 方法，返回的是 NaN。根据规则，任何包含 NaN 的关系运算符都要返回 false，因此这段代码也输出 false：var bResult = "a" >= 3; alert(bResult);
+
+20. delete
+	void(void 运算符对任何值返回 undefined。
+
+21. 后增量/后减量运算符
+	var iNum1 = 2;
+	var iNum2 = 20;
+	var iNum3 = iNum1-- + iNum2++;	//等于 "22"
+	var iNum4 = iNum1 + iNum2;		//等于 "22"	
+
+22. 前增量/前减量运算符
+	var iNum1 = 2;
+	var iNum2 = 20;
+	var iNum3 = --iNum1 + ++iNum2;	//等于 "22"
+	var iNum4 = iNum1 + iNum2;		//等于 "22"
+
+23. 位运算符
+	位运算 NOT:
+		var iNum1 = 25;		//25 等于 00000000000000000000000000011001
+		var iNum2 = ~iNum1;	//转换为 11111111111111111111111111100110
+		alert(iNum2);		//输出 "-26"	
+		<====>
+		var iNum1 = 25;
+		var iNum2 = -iNum1 -1;
+		alert(iNum2);	//输出 -26
+	位运算 AND:
+		var iResult = 25 & 3;
+		alert(iResult);	//输出 "1"	
+		<====>
+		25 = 0000 0000 0000 0000 0000 0000 0001 1001
+		3 = 0000 0000 0000 0000 0000 0000 0000 0011
+		---------------------------------------------
+		AND = 0000 0000 0000 0000 0000 0000 0000 0001
+	位运算 OR:
+		var iResult = 25 | 3;
+		alert(iResult);	//输出 "27"
+		<====>
+		25 = 0000 0000 0000 0000 0000 0000 0001 1001
+		3 = 0000 0000 0000 0000 0000 0000 0000 0011
+		--------------------------------------------
+		OR = 0000 0000 0000 0000 0000 0000 0001 1011	
+	位运算 XOR:
+		var iResult = 25 ^ 3;
+		alert(iResult);	//输出 "26"
+		<====>
+		25 = 0000 0000 0000 0000 0000 0000 0001 1001
+		3 = 0000 0000 0000 0000 0000 0000 0000 0011
+		---------------------------------------------
+		XOR = 0000 0000 0000 0000 0000 0000 0001 1010
+	左移运算:
+		var iOld = 2;		//等于二进制 10
+		var iNew = iOld << 5;	//等于二进制 1000000 十进制 64	
+	无符号右移运算:
+		var iOld = 64;		//等于二进制 1000000
+		var iNew = iOld >>> 5;	//等于二进制 10 十进制 2
+
+24. with：
+	var sMessage = "hello";
+	with(sMessage) {
+	  alert(toUpperCase());	//输出 "HELLO"
+	}
+
+25. 标签与break和continue的使用
+	var iNum = 0;
+	outermost:
+	for (var i=0; i<10; i++) {
+	  for (var j=0; j<10; j++) {
+	    if (i == 5 && j == 5) {
+	    continue outermost;
+	  }
+	  iNum++;
+	  }
+	}
+	alert(iNum);	//输出 "95"			
+
+	var iNum = 0;
+	outermost:
+	for (var i=0; i<10; i++) {
+	  for (var j=0; j<10; j++) {
+	    if (i == 5 && j == 5) {
+	    break outermost;
+	  }
+	  iNum++;
+	  }
+	}
+	alert(iNum);	//输出 "55"

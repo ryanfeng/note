@@ -1,2 +1,0 @@
-http://www.ruanyifeng.com/blog/2012/11/require_js.html
-http://www.bootcdn.cn/script.js/readme/
