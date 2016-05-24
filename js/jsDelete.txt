@@ -1,0 +1,47 @@
+http://www.cnblogs.com/aaronjs/articles/3148934.html
+
+1.删除对象的属性
+	var x = { a: 1 };
+	delete x.a; // true
+	x.a; // undefined
+2.不能删除一个变量或者函数
+	var x = 1;
+	delete x; // false;
+	x; // 1	
+
+	function x() {};
+	delete x; // false;
+	typeof x; // "function"
+
+有没有内部属性 DontDelete，就是本质上为什么我们能删除一些属性而不能删除其他的原因
+	1.
+	(function() {
+	    //不能删除'arguments'，因为有DontDelete
+	    delete arguments; // false;
+	    typeof arguments; // "object"
+
+	    //也不能删除函数的length,因为有DontDelete
+	    function f() {};
+	    delete f.length; // false;
+	    typeof f.length; // "number"
+	}) ();
+
+	2.
+	(function(foo,bar) {
+	    delete foo; // false
+	    foo; // 1
+
+	    delete bar; // false
+	    bar; // "bah"
+	}) (1,"bah");	
+
+	3.
+	eval('var foo = 1;');
+	foo; // 1
+	delete foo; // true
+	typeof foo; // "undefined"
+
+	4.
+	foo = 1;
+	delete foo; // false;
+	typeof foo; // "number"
