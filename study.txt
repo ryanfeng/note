@@ -1,6 +1,14 @@
 http://www.301se.com
 http://www.cnblogs.com/Darren_code/archive/2011/12/31/property.html
 
+阿里推荐：
+CSS布局：http://zh.learnlayout.com/index.html
+CSS手册：http://css.doyoe.com/
+兔哥的JS教程：http://javascript.ruanyifeng.com/
+JS秘密花园：http://bonsaiden.github.io/JavaScript-Garden/zh/
+Git简易指南：http://rogerdudler.github.io/git-guide/index.zh.html
+
+
 
 1:
 	面试宝典
