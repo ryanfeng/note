@@ -1,5 +1,7 @@
 http://www.301se.com
 http://www.cnblogs.com/Darren_code/archive/2011/12/31/property.html
+http://blog.jobbole.com/1115/
+
 
 阿里推荐：
 CSS布局：http://zh.learnlayout.com/index.html
