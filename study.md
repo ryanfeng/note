@@ -1,6 +1,11 @@
 ###学习资源链接
 #####es6:
     http://es6.ruanyifeng.com/#docs/let
+    http://keenwon.com/1524.html
+#####Jquery版本    
+    http://www.jq22.com/jquery-info122  
+#####css实现打字效果:    
+    http://www.cnblogs.com/dolphinX/p/4087817.html
 #####前端性能优化：
     http://blog.jobbole.com/1115/
     http://www.cnblogs.com/Darren_code/archive/2011/12/31/property.html
@@ -23,13 +28,27 @@
     http://www.tuicool.com/articles/aiayI3
     http://hellobug.github.io/blog/angularjs-providers/
     http://bijian1013.iteye.com/blog/2111306
+    依赖注入原理：
+        http://www.alloyteam.com/2015/09/angularjs-study-of-dependency-injection/
+        http://www.ngnice.com/posts/10d728d65da236
 #####懒加载:
     http://blog.csdn.net/qq673318522/article/details/50733878
     http://fedeoo.github.io/%E7%BF%BB%E8%AF%91/2014/11/01/angular-lazy-load
     http://www.tuicool.com/articles/3Mbi2y6
     http://www.ituring.com.cn/tupubarticle/1385
     http://ju.outofmemory.cn/entry/103772
-
+#####事件委托
+    https://segmentfault.com/q/1010000002804347
+#####浏览器~加载，解析，渲染 
+    http://www.jianshu.com/p/e141d1543143
+#####前端技术浅谈    
+    https://dwqs.gitbooks.io/frontenddevhandbook/content/index.html
+#####面试资料
+    http://www.aseoe.com/show-66-373-1.html
+    http://www.zhufengpeixun.cn/JavaScriptmianshiti/2014-02-25/249.html
+#####博客    
+    http://www.kuaipao8.com/
+    http://www.cnblogs.com/rubylouvre/p/3157975.html
 ####前端词汇和技术
     golang，
     docker，
