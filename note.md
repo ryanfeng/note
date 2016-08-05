@@ -1,46 +1,9 @@
-歌曲：
-	初爱
-	相对你说
-	我们好像在哪见过
-	你必须幸福
-
-微信: https://mp.weixin.qq.com/wiki/10/e5f772f4521da17fa0d7304f68b97d7e.html
-
-个人信息：152626199303185121 浙A8992
-
-http://dwz.cn/2Mo9rr
-http://dwz.cn/2OMSWn
-
-golang
-docker
-nodejs
-
-http://dwz.cn/2Mo9rr
-http://dwz.cn/2OMSWn
-
-知识小记：
-setTimeout和setInterval
-懒加载
-http://blog.csdn.net/qq673318522/article/details/50733878
-http://fedeoo.github.io/%E7%BF%BB%E8%AF%91/2014/11/01/angular-lazy-load
-http://www.tuicool.com/articles/3Mbi2y6
-http://www.ituring.com.cn/tupubarticle/1385
-http://ju.outofmemory.cn/entry/103772
-
-angularjs原理
-http://www.angularjs.cn/A0AX
-http://www.tuicool.com/articles/qIBNve
-http://www.angularjs.cn/A0a6
-http://www.tuicool.com/articles/aiayI3
-http://hellobug.github.io/blog/angularjs-providers/
-http://bijian1013.iteye.com/blog/2111306
-
-html5学习
+###知识小记和html5学习
 ============================================================
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 ============================================================
 
-Http学习
+####Http学习
 ============================================================
 OPTIONS http://mail.163.com/ HTTP/1.1
 Host: mail.163.com
@@ -63,8 +26,7 @@ TRACE / HTTP/1.1
 Host: www.1yingli.cn
 ============================================================
 
-
-GIt学习笔记
+####GIt学习笔记
 ============================================================
 $ git config --global user.name "Your Name"
 $ git config --global user.email "email@example.com"
@@ -133,7 +95,7 @@ git push origin branch-name
 =========================================================
 
 
-css学下笔记一
+####css学下笔记一
 =========================================================
 1. 内联元素、块级元素
 2. ul:list-style-type:none/circle/square            
@@ -205,9 +167,7 @@ css学下笔记一
 		}	
 ========================================================
 
-
-
-css学下笔记二
+####css学下笔记二
 ========================================================
 css文件嵌套：@import url(style.css);
 background:
@@ -264,9 +224,7 @@ background:
 		}
 ========================================================
 
-
-
-Sass学习笔记
+####Sass学习笔记
 ========================================================
 Sass与less的区别
 安装：
@@ -396,9 +354,7 @@ Sass与less的区别
 	运算，条件判断(@if),三目判断(if)，循环(@for,@each)
 ========================================================
 
-
-
-Grun学习笔记
+####Grunt学习笔记
 ========================================================
 http://www.gruntjs.net/plugins
 Grunt和 Grunt 插件是通过 npm 安装并管理的，npm是 Node.js 的包管理器。
@@ -436,7 +392,7 @@ Grunt和 Grunt 插件是通过 npm 安装并管理的，npm是 Node.js 的包管
 	grunt
 ========================================================
 
-JSON学习：
+####JSON学习：
 ========================================================
 Json是JavaScript对象表达法。
 Json数据分为：字符串和对象；
@@ -454,7 +410,7 @@ Json数据分为：字符串和对象；
 ========================================================
 
 
-JavaScript学习
+####JavaScript学习
 ========================================================
 1.JavaScript:EAMCScript + Dom + Bom
 2.特点：区分大小写，变量是弱类型的。

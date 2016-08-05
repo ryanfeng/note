@@ -1,0 +1,66 @@
+###学习资源链接
+#####es6:
+    http://es6.ruanyifeng.com/#docs/let
+#####前端性能优化：
+    http://blog.jobbole.com/1115/
+    http://www.cnblogs.com/Darren_code/archive/2011/12/31/property.html
+#####CSS布局：
+    http://zh.learnlayout.com/index.html
+#####CSS手册：
+    http://css.doyoe.com/
+#####兔哥的JS教程：
+    http://javascript.ruanyifeng.com/
+#####JS秘密花园：
+    http://bonsaiden.github.io/JavaScript-Garden/zh/
+#####Git简易指南：
+    http://rogerdudler.github.io/git-guide/index.zh.html
+#####微信web(pc)开发者工具:
+    https://mp.weixin.qq.com/wiki/10/e5f772f4521da17fa0d7304f68b97d7e.html
+#####angularjs原理:
+    http://www.angularjs.cn/A0AX
+    http://www.tuicool.com/articles/qIBNve
+    http://www.angularjs.cn/A0a6
+    http://www.tuicool.com/articles/aiayI3
+    http://hellobug.github.io/blog/angularjs-providers/
+    http://bijian1013.iteye.com/blog/2111306
+#####懒加载:
+    http://blog.csdn.net/qq673318522/article/details/50733878
+    http://fedeoo.github.io/%E7%BF%BB%E8%AF%91/2014/11/01/angular-lazy-load
+    http://www.tuicool.com/articles/3Mbi2y6
+    http://www.ituring.com.cn/tupubarticle/1385
+    http://ju.outofmemory.cn/entry/103772
+
+####前端词汇和技术
+    golang，
+    docker，
+    nodejs，
+	js:闭包、继承、this，
+	语义化，
+	前端安全，
+	编译，
+	自动化构建工具，
+	sass，
+	less，
+	grunt，
+	glup，
+	zepTo.js，
+    DataUrl，
+    Blob/file，
+    Base64，
+    js立即执行函数，
+    jquery全屏滚动fullPage.js，
+    爆炸动画，
+    正则表达式，
+    浏览器内核，
+    callee 和caller的区别，
+    快速排序，
+    react.js，
+    seajs（JavaScript模块载入框架）
+		http://www.tuicool.com/articles/3uIZzy
+		http://yslove.net/seajs/，
+    适配端页面点击事件（时间问题）
+    页面优化，
+    node.js，
+    linux，
+    commonjs/webpack/ES6
+    setTimeout和setInterval的js加载原理和使用
