@@ -2,8 +2,6 @@
 密码: 4jRZPwCtVU2V
 加密方式: aes-256-cfb
 服务器IP：节点地址
-
-vip-us02-5.ssv7.net
 可用服务器节点：
 日本 VIP 线路: vip-jp01-5.ssv7.net
 日本 VIP 线路: vip-jp02-5.ssv7.net

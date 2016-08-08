@@ -1,6 +1,6 @@
 ###知识小记和html5学习
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
+    
 ####Http学习
     ============================================================
     OPTIONS http://mail.163.com/ HTTP/1.1
