@@ -1,0 +1,68 @@
+###继承的主要分为三种方式：
+####1.对象冒充(call,apply)
+
+    function Parent(name) {
+        this.fname = tname;
+        this.age=40;
+        this.sayAge=function() {
+            console.log(this.age);
+        }
+    }
+    function Child(name){
+        this.parent = Parent;
+        this.parent(name);
+        delete this.parent;
+        //可以这样使用call,替换上面的三行代码
+        //Parent.call(this, name);Parent.apply(this, new Array(name));Parent.apply(this, arguments);
+        this.saySomeThing=function() {
+            console.log(this.fname);
+            this.sayAge();
+        }
+    }
+    var mychild = new Child("李");
+    mychild.saySomeThing();
+    
+#####优点：可以实现多重继承,就是继承多个父类，但是父类的属性或方法相同，会覆盖。
+####2.原型方式(prototype) 	
+
+    原型链的弊端是不支持多重继承
+    原型链会用另一类型的对象重写类的 prototype 属性。
+    就无法使用带参数的构造函数
+    
+####3.混合方式
+
+	function ClassA(sColor) {
+	    this.color = sColor;
+	}
+	ClassA.prototype.sayColor = function () {
+	    alert(this.color);
+	};
+	function ClassB(sColor, sName) {
+        ClassA.call(this, sColor);
+        this.name = sName;
+	}
+	ClassB.prototype = new ClassA();
+	//ClassB.prototype = Object.create(ClassA.prototype)  推荐
+	//ES5的Object.create
+	ClassB.prototype.sayName = function () {
+	    alert(this.name);
+	};	
+	var objA = new ClassA("blue");
+	var objB = new ClassB("red", "John");
+	objA.sayColor();	//输出 "blue"
+	objB.sayColor();	//输出 "red"
+	objB.sayName();	//输出 "John"
+	
+##### 如果浏览器不支持es5
+
+    if(!Object.create) {
+        Object.create = function(proto) {
+             function F() {}
+             F.prototype = proto;
+             return new F;
+        }
+    }
+    
+#####参考：
+
+    http://www.w3school.com.cn/js/pro_js_inheritance_implementing.asp

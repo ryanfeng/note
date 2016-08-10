@@ -1,4 +1,4 @@
-本地对象
+1.本地对象
 	Object
 	Function
 	Array
@@ -14,15 +14,15 @@
 	SyntaxError
 	TypeError
 	URIError
-内置对象(开发者不必明确实例化内置对象，它已被实例化了)
+2.内置对象(开发者不必明确实例化内置对象，它已被实例化了)
 	Global
 	Math
-宿主对象
+3.宿主对象
 	所有非本地对象都是宿主对象（host object），即由 ECMAScript 实现的宿主环境提供的对象.
 	所有 BOM 和 DOM 对象都是宿主对象。
 
-/////创建类或对象
-	//1.工厂方式
+###4.创建类或对象
+######1.工厂方式
 	function createCar() {
 	  var oTempCar = new Object;
 	  oTempCar.color = "blue";
@@ -35,7 +35,7 @@
 	}
 	var oCar1 = createCar();
 	var oCar2 = createCar();
-	//2.构造函数方式
+######//2.构造函数方式
 	function Car(sColor,iDoors,iMpg) {
 	  this.color = sColor;
 	  this.doors = iDoors;
@@ -46,7 +46,7 @@
 	}
 	var oCar1 = new Car("red",4,23);
 	var oCar2 = new Car("blue",3,25);
-	//3.混合的构造函数/原型方式(常用)
+######3.混合的构造函数/原型方式(常用)
 	function Car(sColor,iDoors,iMpg) {
 	  this.color = sColor;
 	  this.doors = iDoors;
@@ -61,7 +61,7 @@
 	oCar1.drivers.push("Bill");
 	alert(oCar1.drivers);	//输出 "Mike,John,Bill"
 	alert(oCar2.drivers);	//输出 "Mike,John
-	//4.动态原型方法（常用）
+######4.动态原型方法（常用）
 	function Car(sColor,iDoors,iMpg) {
 	  this.color = sColor;
 	  this.doors = iDoors;
@@ -76,7 +76,7 @@
 	  }
 	}
 
-	//示例
+######示例
 	function StringBuffer () {
 	  this._strings_ = new Array();
 	}
@@ -108,27 +108,21 @@
 	 + (d2.getTime() - d1.getTime()) + " milliseconds")
 	;
 
-/////修改对象
-
-	//添加
-	Number.prototype.toHexString = function() {
+###修改对象
+######添加
+    Number.prototype.toHexString = function() {
   		return this.toString(16);
 	};
-
 	var iNum = 15;
 	alert(iNum.toHexString());
-
-	//添加
 	Object.prototype.showValue = function () {
 	  alert(this.valueOf());
 	};
-
 	var str = "hello";
 	var iNum = 25;
 	str.showValue();		//输出 "hello"
 	iNum.showValue();
-
-	//修改
+######修改
 	Function.prototype.originalToString = Function.prototype.toString;
 	Function.prototype.toString = function() {
 	  if (this.originalToString().length > 100) {
