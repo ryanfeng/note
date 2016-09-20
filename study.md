@@ -1,4 +1,12 @@
 ###学习资源链接
+#####html5-Api:
+http://html5index.org/
+#####html-to-jade:
+http://www.html2jade.org/
+#####css-to-scss:
+http://css2sass.herokuapp.com/
+#####图片压缩:
+https://tinypng.com/
 #####es6:
     http://es6.ruanyifeng.com/#docs/let
     http://keenwon.com/1524.html
