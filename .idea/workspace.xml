@@ -1,30 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="69ae0cda-b8e0-439c-bd43-74d6265c1b4f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dictionaries/apple.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/note.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nodejs/test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/毕设文件/公共课管理系统-毕业设计说明书.doc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/毕设文件/剧院售票系统-毕业设计开题报告.doc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/毕设文件/外文翻译封皮.doc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/毕设文件/毕业设计封皮.doc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/毕设文件/毕业设计摘要.doc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/毕设文件/毕业设计说明书.doc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/毕设文件/毕设文件.zip" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/毕设文件/英文文献  .doc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/毕设文件/英文文献  .pdf" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/alibaba.md" afterPath="$PROJECT_DIR$/study1.md" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ascii/新建文本文档.txt" afterPath="$PROJECT_DIR$/Unicode.md" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/git/Git.txt" afterPath="$PROJECT_DIR$/Git.txt" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/grunt/Grunt.txt" afterPath="$PROJECT_DIR$/Grunt.txt" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/json/Json.js" afterPath="$PROJECT_DIR$/Json.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/sass/Sass.txt" afterPath="$PROJECT_DIR$/Sass.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/study.md" afterPath="$PROJECT_DIR$/study.md" />
-    </list>
+    <list default="true" id="69ae0cda-b8e0-439c-bd43-74d6265c1b4f" name="Default" comment="" />
     <ignored path="note.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -43,7 +20,18 @@
     <favorites_list name="note" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="Study.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Study.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="1" column="3" selection-start-line="1" selection-start-column="3" selection-end-line="1" selection-end-column="3" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -57,6 +45,7 @@
         <option value="$PROJECT_DIR$/note.md" />
         <option value="$PROJECT_DIR$/ascii/新建文本文档.txt" />
         <option value="$PROJECT_DIR$/Unicode.md" />
+        <option value="$PROJECT_DIR$/Study.md" />
       </list>
     </option>
   </component>
@@ -190,18 +179,18 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1474440795501</updated>
-      <workItem from="1474440797267" duration="1930000" />
+      <workItem from="1474440797267" duration="2066000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1930000" />
+    <option name="totallyTimeSpent" value="2066000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24960506" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24960506" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -227,14 +216,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Study.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="892">
-          <caret line="94" column="4" selection-start-line="94" selection-start-column="4" selection-end-line="94" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/css/移动端开发.md">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -303,6 +284,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-608">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Study.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="3" selection-start-line="1" selection-start-column="3" selection-end-line="1" selection-end-column="3" />
           <folding />
         </state>
       </provider>
