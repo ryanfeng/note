@@ -1,0 +1,304 @@
+setTimeout计时问题：
+参考链接 http://www.cnblogs.com/zsqos/p/6188835.html
+
+
+Http协议（超文本传输协议）是一个无状态的请求/响应协议
+http协议默认端口是80，基于tcp/ip的应用层协议，无状态的
+https协议默认端口是443，基于ssl或者tls
+
+Http请求支持的方法：
+GET   请求获取Request-URI所标识的资源（1.0）
+POST 在Request-URI所标识的资源后附加新的数据（1.0）
+HEAD 请求获取由Request-URI所标识的资源的响应消息报头（1.0）
+
+PUT    请求服务器存储一个资源，并用Request-URI作为其标识
+DELETE 请求服务器删除Request-URI所标识的资源
+OPTIONS 请求查询服务器的性能，或者查询与资源相关的选项和需求
+TRACE   请求服务器回送收到的请求信息，主要用于测试或诊断
+CONNECT 隧道机制
+
+请求报文：
+   请求行，请求头，空行，请求数据
+响应报文：
+   响应行，消息报头，空行，正文
+
+状态码：
+4XX：客户端错误，请求包含语法错误或无法完成请求
+3XX：重定向，需要进一步的操作以完成请求
+400客户端请求的语法错误，服务器无法理解
+401请求要求用户的身份认证
+403服务器理解客户端的请求，但是拒绝执行此请求
+405客户端请求中的方法被禁止
+
+Http Header里的Content-Type一般有：
+
+    application/x-www-form-urlencoded：数据被编码为名称/值对。这是标准的编码格式。
+    multipart/form-data： 数据被编码为一条消息，页上的每个控件对应消息中的一个部分。
+    text/plain： 数据以纯文本形式(text/json/xml/html)进行编码，其中不含任何控件或格式字符。postman软件里标的是RAW。
+
+    application/json返回json数据。请求时需要把json转化为json字符串
+
+	form的enctype属性为编码方式，常用有两种：application/x-www-form-urlencoded和multipart/form-data，默认为application/x-www-form-urlencoded。
+
+当action为get时候，浏览器用x-www-form-urlencoded的编码方式把form数据转换成一个字串（name1=value1&name2=value2...），然后把这个字串追加到url后面，用?分割，加载这个新的url。
+
+当action为pos时候，浏览器把form数据封装到http body中，然后发送到server。 如果没有type=file的控件，用默认的application/x-www-form-urlencoded就可以了。 但是如果有type=file`的话，就要用到multipart/form-data了。
+
+当action为post且Content-Type类型是multipart/form-data，浏览器会把整个表单以控件为单位分割，并为每个部分加上Content-Disposition(form-data或者file),Content-Type(默认为text/plain),name(控件name)等信息，并加上分割符(boundary)。
+
+
+
+css的居中处理：
+http://ourjs.com/detail/54092637f50bcc0a66000004
+
+1.水平和垂直居中
+有高度和宽度：
+.parent {
+	 position: relative;
+}
+ .child {
+  width: 300px;
+  height: 100px;
+  padding: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -70px 0 0 -170px;
+ }
+
+ 2.宽高未知：
+ .parent {
+	 position: relative;
+ }
+ .child {
+	 position: absolute;
+	 top: 50%;
+	 left: 50%;
+	 transform: translate(-50%, -50%);
+ }
+		
+
+
+
+
+ bootStrap栅格系统原理：
+参考链接：http://www.cnblogs.com/willian/p/3558180.html?utm_source=tuicool&utm_medium=referral
+http://blog.csdn.net/xiaobing_hope/article/details/51285695
+
+三等分：
+1.百分比
+2.父元素display:table,子元素：display:table-cell
+3.父元素display:flex,子元素：flex:1
+
+
+浏览器的缓存机制：
+ http协议额缓存机制：expires,cache-control
+非http缓冲机制： <meta http-equiv=‘pragma’ content=’no-cache’>
+
+
+本地缓存：
+(Http1.0) Expires: 规定缓存的失效时间
+(Http1.1) Cache-Control: max-age规定缓存的有效期（public, max-age=2552）
+基本计算出来他们的时间是一样的。
+但是max-age的优先级高
+
+
+服务器缓存：
+Last-modified（响应头）if-Modified-Since（请求头）
+ctrl+r会默认跳过max-age和expires验证直接去向服务器请求
+Etag（响应头）If-none-match （请求头）
+Etag解决Last-modified的问题：
+1.小于妙级的误差
+2.服务器时间不能准确获取文件修改时间或者与代理服务器时间不一
+3.文件内容没有变化，但是文件需要定期生成，last-modified没有变化
+
+
+不缓存：
+HTTP信息头中包含：Cache-Cantrol：no-cache, pragma:no-cache，Cache-Control:max-age=0
+
+
+用户操作：
+
+
+
+
+
+
+性能优化：
+打开页面的步骤：
+1.浏览器发送HTTP请求
+2.服务器接受Http请求，解析请求，从存储层拉去数据，拼接Html,返回一个Http响应
+3.这个请求通过网路传输到浏览器
+4.浏览器解析收到的数据，构造dom数，下载css和js
+5.浏览器下载了css之后，开始解析css，渲染页面
+6.下载js之后，开始解析js,并执行
+
+
+1.使用iconfont
+	使用Icon Font可以提升设计师的发挥空间，在页面上使用一些特殊字体以提升页面的美观程度，让页面看起来更具有设计感，更加细腻，从而提升用户的浏览体验。
+	而且Icon Font兼容性非常好，可以让不同浏览器的用户获得一致的浏览体验，并且通过字体压缩工具，压缩后的字体文件也可以非常小，不会有太多的性能损耗。
+
+2.空闲时间自动加载楼层及图片
+	我们使用了按需加载来提升页面性能，但这样带来的问题就是只有当用户滚动楼层到浏览器视窗内，楼层才会开始加载，这样用户滚动得稍微快一点就会出现很多loading动画。
+	为了减少这种情况的发生，让用户觉得楼层也加载很快，在不影响页面滚动、加载性能的前提下我们在用户操作的空闲时间自动加载剩余的楼层和图片。
+	将楼层的加载操作放入一个队列中，我们可以在用户停止滚动操作3s后开始自动加载这个队列中的楼层，而当用户开始滚动的时候清空这个加载队列，停止滚动3秒后又重新开始加载。通过这样处理可以合理利用用户浏览的空闲时间来加载页面，让用户感觉页面加载更快。
+
+3.页面可用性保障和监控
+	通常，我们通过接口缓存、超时、重试来进行灾备处理。目前首页大部分接口、及所有模板请求，在请求成功后都会存入本地缓存，第二次请求，假如缓存没有过期将直接使用缓存，假如缓存过期将会重新请求，而一次正常的请求，都会经过超时或异常重试的逻辑，来保证用户能尽量访问到正常的数据，在正常接口无法获取数据之后又会有兜底接口来保障数据来源，这样的层层保障，很好地保证了页面的完整性。而且，针对所有接口，前端均有数据校验逻辑，每一个后端接口都要经过前端的数据校验，来验证接口的可用性，假如接口数据异常，前端将主动调用兜底接口来替代，这样来保证页面不至于错乱。 
+	这样一套复杂的流程下，每一个接口、模板请求都是统一的，所以需要对此进行封装，以便调用。首页是通过封装改造$.ajax来实现的，使用$.ajaxPrefilter和$.ajaxTransport方法对每个异步请求进行捕获处理，将接口、模板请求的重试、超时、缓存、兜底调用等封装起来，对调用者透明，使用起来变得非常容易，而不需要关心以上灾备策略的实现。
+
+4.OpenSearch
+	现在很多网站都能实现在浏览器搜索框内直接调用网站内部搜索的功能，这是通过 OpenSearch 来做到的，而京东之前一直是没有的，这样显然是不合适，而且有一些习惯于使用地址栏搜索的用户不能满足。在这次改版中，我们加上了这一功能，使得用户可以在浏览器地址栏就能直达京东搜索。
+
+5.强制webkit内核渲染
+	很多国产浏览器都是双内核，例如360、QQ浏览器等，而它们都提供了强制使用Webkit内核渲染的开启方式，这样可以让用户获得更好的浏览体验。
+	meta(http-equiv='X-UA-Compatible' content='IE=edge’)
+	meta(name='renderer' content='webkit’)
+
+6.高清屏适配方案
+	 运营同学只需要上传一张高清图片，我们通过判断是否高清屏，来动态改变URL，使用图片服务来得到一张等比缩放的非高清素材，而且CDN会根据图片URL进行缓存，也就是说只要第一次访问过缩放的图片就好，这样性能也不会有什么损耗。
+         图片服务在运营人员上传的高清图再生成一个普通图，并且生成url。
+
+7.大量使用WebP格式图片
+ 1、若使用场景是浏览器，可以：
+JavaScript 能力检测，对支持 WebP 的用户输出 WebP 图片
+使用 WebP 支持插件：WebPJS：http://webpjs.appspot.com
+ 2、若使用场景是 App，可以：
+
+Android 4.0 以下 WebP 解析库（https://github.com）
+iOS WebP 解析库（https://github.com）
+ 3、转换工具：
+
+智图（http://zhitu.tencent.com）
+iSparta（http://isparta.ghub）
+    iSparta 是我们组针对 WebP 和 APNG 两种新型图片格式的转化而开发的一款桌面应用，直接图片批量转换为 WebP，同时提供多种参数配置，欢迎体验。
+
+8.模板、数据分离缓存
+
+	对数据来说，数据是由后端给出的，我们可以让后端同学将可以缓存的接口数据计算出一个MD5值作为版本号，然后直出在页面上，同时在接口中返回这个版本号，这样当前端去加载是首先判断版本号是否一致，以此来判断是直接读缓存还是从网络请求资源。
+
+9.楼层按需加载与滚动优化
+
+	通过监听滚动事件，我们判断让处于浏览器视窗内的楼层进行加载，由于监听了滚动事件，为了让滚动更加流畅，我们必然要对滚动中做的操作进行优化。为了避免滚动操作不断被触发，需要对滚动进行节流处理。我们的原则是尽量避免在滚动的时候进行DOM操作与复杂计算，所以在渲染逻辑初始化的时候，我们就已经收集好了楼层的相关信息，包括楼层高度、楼层的offsetTop等，这样在滚动的时候就不再需要进行任何DOM操作了，让滚动的效率有所提升。而当楼层的数据例如楼层高度发生变化时，则通过消息通知的机制来实时地更新楼层信息即可。
+
+10.首屏轮播第一帧直出
+
+	 一直以来轮播都是靠页面最后加载的JS来进行渲染的，因为轮播图有随机渲染图片的逻辑需要依赖JS，但在一段时间的观察之后发现，如果CDN出现抖动，或者用户的网速较慢，那么首屏轮播这一块位置就会一直空着，给人的体验非常不好,所以在这一版的首页中我们将轮播图第一帧的数据直出在页面上，同时也将第一帧的渲染逻辑也直出在页面上，这样一来，首屏轮播出来得就非常快，减少用户的等待时间。
+
+11.响应式图像
+
+	 srcset,sizes,picture
+
+
+
+滚动优化：
+滑动优化：
+flex学习
+
+
+
+
+
+
+
+安全防护：
+1. 防止网络钓鱼攻击
+	a标签target=_blank增rel="nofollow me noopener noreferrer" 来堵住钓鱼安全漏洞
+
+2.验证码 
+	加噪点和扭曲
+
+3.https
+	安全性
+
+4.session 和cookie的区别
+	Cookie 存储在浏览器上，用户可以查看和修改 Cookie。Session 是存储在服务端的数据，一般来说安全可靠；大多数 Session 都是基于 Cookie 实现的（在 Cookie 中存储一串 SESSION_ID，在服务器上存储该 SESSION_ID 对应的内容）。
+	cookie不要存储重要信息
+
+5.CSRF 漏洞（跨站请求伪造：就是网站中的一些提交行为，被黑客利用，你在访问黑客的网站的时候，进行的操作，会被操作到其他网站上(如：你所使用的网络银行的网站 ）
+CSRF (Cross-site request forgery)，是一个知名度不如 XSS 但是却同样具有很大杀伤力的安全漏洞。它的杀伤力大正是因为很多开发者不知道这个漏洞。
+解决方法：
+	 给所有请求加上 token 检查。token 一般是随机字符串，只需确保其不可预测性即可。token 可以在 QueryString、POST body 甚至是 Custom Header 里，但千万不能在 Cookies 里。
+	检查 referer （请注意，这往往不能防御来自网站自身的 CSRF 攻击，如用户评论中的 <img> 就是一个常见触发点）
+
+6.XSS 漏洞（跨站脚本攻击）
+XSS (Cross-Site Scripting)，是一个我觉得耳熟能详的前端安全问题。通过构造特殊数据，在用户浏览器上执行特定脚本，从而造成危害（如以用户身份发帖、转账等）。由于页面内 JavaScript 几乎可以完成各种事情，因此一旦网站上有 XSS 漏洞，那些没有验证码等确认措施的操作大多都能不知情地完成，其危害甚大。
+ 解决方法：
+ 	在不同上下文中，使用合适的 escape 方式
+ 	不要相信 任何 来自用户的输入（不仅限于 POST Body，还包括 QueryString，甚至是 Headers）
+
+
+
+cookie，sessionStorage，localStorage 的区别：
+localStorage:
+	没有时间限制的数据存储，
+	支持5M大小，
+	只支持string类型的存储，
+	ie8以上支持，
+	在隐私模式下不可读，
+	作用是为本地存储数据
+sessionStorage: 
+	 在关闭页面后即被清空，也就是当前回话结束,
+	 也是5M大小左右，
+	 其他都和localStorage一样,
+
+cookie:
+	一个最多支持4k,
+  	浪费带宽，每次请求新的页面都要加上，
+	不可以跨域，
+	一个域名下面最多20cookie，
+       作用是与服务器进行交互，作为HTTP规范的一部分而存在
+	
+
+cookie 和session 的区别：
+	 cookie数据存放在客户的浏览器上，session数据放在服务器上。
+	 cookie不是很安全，别人可以分析存放在本地的COOKIE并进行COOKIE欺骗，考虑到安全应当使用session。
+	 session会在一定时间内保存在服务器上。当访问增多，会比较占用你服务器的性能考虑到减轻服务器性能方面，应当使用COOKIE。
+	 单个cookie保存的数据不能超过4K，很多浏览器都限制一个站点最多保存20个cookie。
+	 所以个人建议：将登陆信息等重要信息存放为SESSION，其他信息如果需要保留，可以放在COOKIE中
+
+
+原因：
+	 由于HTTP协议是无状态的协议，所以服务端需要记录用户的状态时，就需要用某种机制来识具体的用户，这个机制就是Session.典型的场景比如购物车，当你点击下单按钮时，由于HTTP协议无状态，所以并不知道是哪个用户操作的，所以服务端要为特定的用户创建了特定的Session，用用于标识这个用户，并且跟踪用户，这样才知道购物车里面有几本书。这个Session是保存在服务端的，有一个唯一标识。在服务端保存Session的方法很多，内存、数据库、文件都有。集群的时候也要考虑Session的转移，在大型的网站，一般会有专门的Session服务器集群，用来保存用户会话，这个时候 Session 信息都是放在内存的，使用一些缓存服务比如Memcached之类的来放 Session。
+	 思考一下服务端如何识别特定的客户？这个时候Cookie就登场了。每次HTTP请求的时候，客户端都会发送相应的Cookie信息到服务端。实际上大多数的应用都是用 Cookie 来实现Session跟踪的，第一次创建Session的时候，服务端会在HTTP协议中告诉客户端，需要在 Cookie 里面记录一个Session ID，以后每次请求把这个会话ID发送到服务器，我就知道你是谁了。有人问，如果客户端的浏览器禁用了 Cookie 怎么办？一般这种情况下，会使用一种叫做URL重写的技术来进行会话跟踪，即每次HTTP交互，URL后面都会被附加上一个诸如 sid=xxxxx 这样的参数，服务端据此来识别用户。
+	 Cookie其实还可以用在一些方便用户的场景下，设想你某次登陆过一个网站，下次登录的时候不想再次输入账号了，怎么办？这个信息可以写到Cookie里面，访问网站的时候，网站页面的脚本可以读取这个信息，就自动帮你把用户名给填了，能够方便一下用户。这也是Cookie名称的由来，给用户的一点甜头。
+所以，总结一下：
+Session是在服务端保存的一个数据结构，用来跟踪用户的状态，这个数据可以保存在集群、数据库、文件中；
+Cookie是客户端保存用户信息的一种机制，用来记录用户的一些信息，也是实现Session的一种方式。
+
+1，session 在服务器端，cookie 在客户端（浏览器）
+2，session 默认被存在在服务器的一个文件里（不是内存）
+3，session 的运行依赖 session id，而 session id 是存在 cookie 中的，也就是说，如果浏览器禁用了 cookie ，同时 session 也会失效（但是可以通过其它方式实现，比如在 url 中传递 session_id）
+4，session 可以放在 文件、数据库、或内存中都可以。
+5，用户验证这种场合一般会用 session
+
+ 因此，维持一个会话的核心就是客户端的唯一标识，即 session id 	
+
+
+
+
+ cloud.globalvillage.biz：
+18058148144  yyr198729
+
+心知天气：
+q/38^S$z/j3II7  it@globalvillage.biz
+
+7牛：
+ltk@globalvillage.biz
+dqcllKK2cD
+
+官网测试：
+120.26.87.159
+/usr/local/www_testhome
+dqvllKK2cD
+
+svn合并分支
+svn log --stop-on-copy -q http://svn.shguo.com/repos/sns/branches/101128_sns_imageUpload_shguo
+
+svn merge –r 16:HEAD http://svn.shguo.com/repos/sns/branches/101128_sns_imageUpload_shguo
+
+app下载：
+http://a.app.qq.com/o/simple.jsp?pkgname=biz.globalvillage.newwind
+互联网-詹深焕  20:07:29
+https://itunes.apple.com/cn/app/de-qiu-cun-xin-feng/id1155752968?mt=8
+
