@@ -273,32 +273,3 @@ Cookie是客户端保存用户信息的一种机制，用来记录用户的一�
 5，用户验证这种场合一般会用 session
 
  因此，维持一个会话的核心就是客户端的唯一标识，即 session id 	
-
-
-
-
- cloud.globalvillage.biz：
-18058148144  yyr198729
-
-心知天气：
-q/38^S$z/j3II7  it@globalvillage.biz
-
-7牛：
-ltk@globalvillage.biz
-dqcllKK2cD
-
-官网测试：
-120.26.87.159
-/usr/local/www_testhome
-dqvllKK2cD
-
-svn合并分支
-svn log --stop-on-copy -q http://svn.shguo.com/repos/sns/branches/101128_sns_imageUpload_shguo
-
-svn merge –r 16:HEAD http://svn.shguo.com/repos/sns/branches/101128_sns_imageUpload_shguo
-
-app下载：
-http://a.app.qq.com/o/simple.jsp?pkgname=biz.globalvillage.newwind
-互联网-詹深焕  20:07:29
-https://itunes.apple.com/cn/app/de-qiu-cun-xin-feng/id1155752968?mt=8
-
