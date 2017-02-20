@@ -1,0 +1,70 @@
+JS获取body及屏幕的高宽:
+	参考文档：
+		http://www.cnblogs.com/dolphinX/archive/2012/11/19/2777756.html
+		http://www.ruanyifeng.com/blog/2009/09/find_element_s_position_using_javascript.html
+		http://www.cnblogs.com/rubylouvre/archive/2009/08/24/1552862.html
+		http://itindex.net/detail/51490-js-%E9%BC%A0%E6%A0%87-%E4%BD%8D%E7%BD%AE
+
+    1. clientHeight和clientWidth用于描述元素内尺寸，是指 元素内容+内边距大小，不包括边框（IE下实际包括）、外边距、滚动条部分
+
+    2. offsetHeight和offsetWidth用于描述元素外尺寸，是指 元素内容+内边距+边框，不包括外边距和滚动条部分
+
+    3. clientTop和clientLeft返回内边距的边缘和边框的外边缘之间的水平和垂直距离，也就是左，上边框宽度
+
+    4. offsetTop和offsetLeft表示该元素的左上角（边框外边缘）与已定位的父容器（offsetParent对象）左上角的距离
+
+    5. offsetParent对象是指元素最近的定位（relative,absolute）祖先元素，递归上溯，如果没有祖先元素是定位的话，会返回null
+
+    6. scrollWidth和scrollHeight是元素的内容区域加上内边距加上溢出尺寸，当内容正好和内容区域匹配没有溢出时，这些属性与clientWidth和clientHeight相等
+
+    7. scrollLeft和scrollTop是指元素滚动条位置，它们是可写的
+
+
+    获取文档坐标位置：
+    	任何HTML元素都拥有offectLeft和offectTop属性返回元素的X和Y坐标，对于很多元素，这些值是文档坐标，但是对于以定位元素后代及一些其他元素（表格单元），返回相对于祖先的坐标。
+    	x += e.offsetLeft;
+        y += e.offsetTop;
+        e = e.offsetParent;
+
+    获取div可视区域的位置：
+     	通过getBoundingClientRect();
+     	var topicsObj = document.getElementById("topics");
+     	topics.getBoundingClientRect().top
+
+
+
+	 网页可见区域宽：document.body.clientWidth 或者 document.documentElement.clientWidth
+	 网页可见区域宽：document.body.offsetWidth
+	 网页正文全文宽：document.body.scrollWidth
+	 网页被卷去的高：document.body.scrollTop
+
+	 屏幕分辨率的高：window.screen.height
+	 屏幕可用工作区高度：window.screen.availHeight
+
+
+鼠标位置：
+相对于屏幕：
+	function getMousePos(event) {             
+	    var e = event || window.event;             
+	    return {'x':e.screenX,'y':screenY}  
+	} 
+
+相对浏览器窗口 
+	function getMousePos(event) {              
+	 	var e = event || window.event;              
+	 	return {'x':e.clientX,'y':clientY} 
+	} 
+
+相对文档 
+	function getMousePos(event) {
+	    var e = event || window.event;
+	    var scrollX = document.documentElement.scrollLeft || document.body.scrollLeft;
+	    var scrollY = document.documentElement.scrollTop || document.body.scrollTop;
+	    var x = e.pageX || e.clientX + scrollX;
+	    var y = e.pageY || e.clientY + scrollY;
+	    return { 'x': x, 'y': y };
+	}
+
+	Firefox支持属性pageX,与pageY属性，这两个属性已经把页面滚动计算在内了。
+	在Chrome可以通过document.body.scrollLeft，document.body.scrollTop计算出页面滚动位移，
+	而在IE下可以通过document.documentElement.scrollLeft ，document.documentElement.scrollTop

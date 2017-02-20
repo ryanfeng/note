@@ -1,0 +1,9 @@
+bootStrap栅格系统原理：
+参考链接：
+http://www.cnblogs.com/willian/p/3558180.html?utm_source=tuicool&utm_medium=referral
+http://blog.csdn.net/xiaobing_hope/article/details/51285695
+
+三等分：
+1.百分比
+2.父元素display:table,子元素：display:table-cell
+3.父元素display:flex,子元素：flex:1

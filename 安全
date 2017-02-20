@@ -1,0 +1,25 @@
+安全防护：
+1. 防止网络钓鱼攻击
+	a标签target=_blank增rel="nofollow me noopener noreferrer" 来堵住钓鱼安全漏洞
+
+2.验证码 
+	加噪点和扭曲
+
+3.https
+	安全性
+
+4.session 和cookie的区别
+	Cookie 存储在浏览器上，用户可以查看和修改 Cookie。Session 是存储在服务端的数据，一般来说安全可靠；大多数 Session 都是基于 Cookie 实现的（在 Cookie 中存储一串 SESSION_ID，在服务器上存储该 SESSION_ID 对应的内容）。
+	cookie不要存储重要信息
+
+5.CSRF 漏洞（跨站请求伪造：就是网站中的一些提交行为，被黑客利用，你在访问黑客的网站的时候，进行的操作，会被操作到其他网站上(如：你所使用的网络银行的网站 ）
+CSRF (Cross-site request forgery)，是一个知名度不如 XSS 但是却同样具有很大杀伤力的安全漏洞。它的杀伤力大正是因为很多开发者不知道这个漏洞。
+解决方法：
+	 给所有请求加上 token 检查。token 一般是随机字符串，只需确保其不可预测性即可。token 可以在 QueryString、POST body 甚至是 Custom Header 里，但千万不能在 Cookies 里。
+	检查 referer （请注意，这往往不能防御来自网站自身的 CSRF 攻击，如用户评论中的 <img> 就是一个常见触发点）
+
+6.XSS 漏洞（跨站脚本攻击）
+XSS (Cross-Site Scripting)，是一个我觉得耳熟能详的前端安全问题。通过构造特殊数据，在用户浏览器上执行特定脚本，从而造成危害（如以用户身份发帖、转账等）。由于页面内 JavaScript 几乎可以完成各种事情，因此一旦网站上有 XSS 漏洞，那些没有验证码等确认措施的操作大多都能不知情地完成，其危害甚大。
+ 解决方法：
+ 	在不同上下文中，使用合适的 escape 方式
+ 	不要相信 任何 来自用户的输入（不仅限于 POST Body，还包括 QueryString，甚至是 Headers）

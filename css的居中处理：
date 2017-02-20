@@ -1,0 +1,29 @@
+css的居中处理：
+http://ourjs.com/detail/54092637f50bcc0a66000004
+
+1.水平和垂直居中
+有高度和宽度：
+.parent {
+	 position: relative;
+}
+ .child {
+  width: 300px;
+  height: 100px;
+  padding: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -70px 0 0 -170px;
+ }
+
+ 2.宽高未知：
+ .parent {
+	 position: relative;
+ }
+ .child {
+	 position: absolute;
+	 top: 50%;
+	 left: 50%;
+	 transform: translate(-50%, -50%);
+ }
+		
