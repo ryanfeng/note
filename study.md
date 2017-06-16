@@ -1,5 +1,3 @@
-###学习资源
-
 ###插件
 http://www.dowebok.com/
 
