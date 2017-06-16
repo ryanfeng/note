@@ -1,4 +1,4 @@
-###资
+###资源链接
 ###插件
 http://www.dowebok.com/
 #####html5-Api:
