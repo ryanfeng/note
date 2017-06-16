@@ -1,4 +1,4 @@
-###学习资源链接
+###学习资源
 ###插件
 http://www.dowebok.com/
 #####html5-Api:
