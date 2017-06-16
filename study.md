@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ###资源链接
+=======
+###学习资源链接
+>>>>>>> parent of 7628fda... reset
 ###插件
 http://www.dowebok.com/
 #####html5-Api:
